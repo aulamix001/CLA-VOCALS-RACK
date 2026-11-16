@@ -24,10 +24,16 @@ python scripts/verify_sources.py
 
 ## Pendente
 
-- Compilação MSVC x64 e execução dos testes em Windows. O workflow Windows e os comandos estão preparados, mas não foram executados nesta máquina Linux.
 - Carregamento, varredura VST3, automação, troca de configuração de canais, salvar/reabrir sessão e reprodução em DAW Windows real.
 - Validação perceptiva, refinamento visual, resposta sob mudanças rápidas de modos, compatibilidade com hosts e comparação sonora. Não há demonstração de equivalência ao plugin proprietário.
 - Teste de todos os botões e dos diálogos de presets em ambiente gráfico real; o teste offscreen cobre a criação e a ligação de um fader.
-- Publicação do ambiente e restauração em uma nova tarefa. `install_script` e `start_skill` foram salvos no rascunho; isso não publica o ambiente nem envia o código ao GitHub.
+- Publicação do ambiente e restauração em uma nova tarefa. `install_script` e `start_skill` foram salvos no rascunho; isso não publica o ambiente. O código e o VST3 Windows foram enviados ao GitHub separadamente.
 
-Nenhum binário Windows foi gerado. O `.so` em `build/VocalsRack_artefacts/Release/VST3` é exclusivamente Linux.
+## Publicação Windows verificada
+
+- [GitHub Actions #2](https://github.com/aulamix001/CLA-VOCALS-RACK/actions/runs/43920870808): build e release concluídos com sucesso; MSVC x64, testes CTest e empacotamento são etapas obrigatórias.
+- Código compilado: `e3af7222ccdbc1672b163d50fd846280506404dc`, tag `v0.1.0-preview.1`.
+- [Release publicada](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.1).
+- O ZIP publicado foi baixado novamente e conferido: 4.572.780 bytes; SHA-256 `b2c28cec1e8b75ea4c49a5c2b1be463ea14b57978e4b3a1907305db449a261d9`, correspondente ao arquivo de checksums publicado.
+- Bundle completo com `Vocals Rack.vst3/Contents/x86_64-win/Vocals Rack.vst3`; binário de 8.054.784 bytes, cabeçalhos Windows PE e arquitetura AMD64 (`0x8664`) verificados.
+- O `.so` em `build/VocalsRack_artefacts/Release/VST3` continua sendo exclusivamente Linux. O ZIP Windows baixado está fora do checkout, em `/workspace/releases/`.

@@ -10,6 +10,12 @@ A imagem gerada aprovada está em `assets/reference/vocals-rack-reference.png`, 
 python scripts/verify_sources.py
 ```
 
+## Download Windows x64
+
+Prévia compilada e testada no Windows: [Vocals Rack v0.1.0-preview.1](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.1).
+
+[Baixar ZIP do VST3](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/download/v0.1.0-preview.1/Vocals-Rack-Windows-x64-VST3.zip). Extraia e copie a pasta inteira `Vocals Rack.vst3` para `C:\Program Files\Common Files\VST3\`. Faça uma nova varredura na DAW. Teste em DAW real ainda pendente.
+
 ## Windows 64 bits
 
 Pré-requisitos: Visual Studio 2022 com “Desktop development with C++”, Windows SDK, CMake >= 3.22 e Git. JUCE 8.0.6 é obtido por commit fixo; o SDK VST3 vem no JUCE.
@@ -20,7 +26,7 @@ cmake --build build --config Release --parallel 2
 ctest --test-dir build -C Release --output-on-failure
 ```
 
-Saída: `build/VocalsRack_artefacts/Release/VST3/Vocals Rack.vst3`. Copiar o bundle inteiro para `C:\Program Files\Common Files\VST3\` e fazer nova varredura na DAW. O workflow `.github/workflows/windows.yml` compila e empacota para Windows; somente será executado ao acionar no GitHub ou publicar os arquivos no repositório. Nesta tarefa, nenhuma publicação é automática.
+Saída: `build/VocalsRack_artefacts/Release/VST3/Vocals Rack.vst3`. Copiar o bundle inteiro para `C:\Program Files\Common Files\VST3\` e fazer nova varredura na DAW. O workflow `.github/workflows/windows.yml` compila e testa no Windows; ao enviar uma tag `v*`, publica o ZIP e seu SHA-256 no GitHub Releases. A prévia acima foi publicada com sucesso.
 
 ## Linux / ambiente na nuvem
 
@@ -51,6 +57,6 @@ A/B troca os dois estados; A > B copia o estado atual para o alternativo. Duplo 
 
 DSP próprio: filtros de primeira ordem, compressor estéreo vinculado, reverb JUCE, delay com feedback e chorus/doubling. Não reproduz o processamento fixo proprietário mencionado no manual, nem importa os presets Waves, cujos valores internos não têm correspondência sonora garantida. Os XMLs de preset foram preservados como referência, sem serem executados ou tratados como instruções de instalação. Não há undo/redo na barra inicial. A interface usa a imagem como base, com controles desenhados sobre ela; ainda exige refinamento visual e teste de interação em DAW.
 
-A compilação Windows e o teste real em DAW Windows precisam de um runner Windows; configurar um alvo x64 não comprova essa validação. Consultar `docs/validation.md` para os resultados efetivamente executados.
+A compilação Windows x64 e os testes automatizados passaram no GitHub Actions. O carregamento e o teste real em DAW Windows ainda estão pendentes. Consultar `docs/validation.md` para os resultados efetivamente executados.
 
 JUCE e o SDK VST3 mantêm seus próprios termos de licença (ver arquivos de licença no JUCE). As marcas e os materiais de referência fornecidos pertencem aos respectivos titulares; a imagem de referência não define uma afiliação do novo plugin.
