@@ -12,9 +12,11 @@ python scripts/verify_sources.py
 
 ## Download Windows x64
 
-Prévia compilada e testada no Windows: [Vocals Rack v0.1.0-preview.1](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.1).
+Prévia compilada e testada no Windows: [Vocals Rack v0.1.0-preview.3](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.3).
 
-[Baixar ZIP do VST3](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/download/v0.1.0-preview.1/Vocals-Rack-Windows-x64-VST3.zip). Extraia e copie a pasta inteira `Vocals Rack.vst3` para `C:\Program Files\Common Files\VST3\`. Faça uma nova varredura na DAW. Teste em DAW real ainda pendente.
+[Baixar ZIP do VST3](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/download/v0.1.0-preview.3/Vocals-Rack-Windows-x64-VST3.zip). Extraia e copie a pasta inteira `Vocals Rack.vst3` para `C:\Program Files\Common Files\VST3\`. Faça uma nova varredura na DAW. Teste em DAW real ainda pendente.
+
+[Ver a captura real da interface no Windows](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/download/v0.1.0-preview.3/Vocals-Rack-Interface.png).
 
 ## Windows 64 bits
 

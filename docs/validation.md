@@ -29,11 +29,12 @@ python scripts/verify_sources.py
 - Teste de todos os botões e dos diálogos de presets em ambiente gráfico real; o teste offscreen cobre os faders, os seletores e o redimensionamento.
 - Publicação do ambiente e restauração em uma nova tarefa. `install_script` e `start_skill` foram salvos no rascunho; isso não publica o ambiente. O código e o VST3 Windows foram enviados ao GitHub separadamente.
 
-## Publicação Windows verificada
+## Publicação Windows verificada — interface de hardware
 
-- [GitHub Actions #2](https://github.com/aulamix001/CLA-VOCALS-RACK/actions/runs/43920870808): build e release concluídos com sucesso; MSVC x64, testes CTest e empacotamento são etapas obrigatórias.
-- Código compilado: `e3af7222ccdbc1672b163d50fd846280506404dc`, tag `v0.1.0-preview.1`.
-- [Release publicada](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.1).
-- O ZIP publicado foi baixado novamente e conferido: 4.572.780 bytes; SHA-256 `b2c28cec1e8b75ea4c49a5c2b1be463ea14b57978e4b3a1907305db449a261d9`, correspondente ao arquivo de checksums publicado.
-- Bundle completo com `Vocals Rack.vst3/Contents/x86_64-win/Vocals Rack.vst3`; binário de 8.054.784 bytes, cabeçalhos Windows PE e arquitetura AMD64 (`0x8664`) verificados.
-- O `.so` em `build/VocalsRack_artefacts/Release/VST3` continua sendo exclusivamente Linux. O ZIP Windows baixado está fora do checkout, em `/workspace/releases/`.
+- [GitHub Actions #6](https://github.com/aulamix001/CLA-VOCALS-RACK/actions/runs/43945137514): build e release concluídos com sucesso; MSVC x64, testes CTest e empacotamento são etapas obrigatórias.
+- Código compilado: `87ce45f1f04361b0bdc48f6449fa38c5362da7cb`, tag `v0.1.0-preview.3`.
+- [Release publicada](https://github.com/aulamix001/CLA-VOCALS-RACK/releases/tag/v0.1.0-preview.3).
+- O ZIP publicado foi baixado novamente e conferido: 4580661 bytes; SHA-256 `4d4d6f0e1ab68967391eba54324ca460fa664bbfef39c6225e3cf9454b12abe8`, correspondente ao arquivo de checksums publicado.
+- Bundle completo com `Vocals Rack.vst3/Contents/x86_64-win/Vocals Rack.vst3`; binário de 8070144 bytes, cabeçalhos Windows PE e arquitetura AMD64 (`0x8664`) verificados.
+- A captura real do editor no runner Windows foi baixada e inspecionada: 1090 × 707, 760982 bytes, controles metálicos, seletores iluminados e medidores renderizados. A renderização usa superfícies de software e encerra o contexto de desenho antes de ler ou codificar os pixels; o teste rejeita imagens vazias. Isso corrige a captura preta observada na prévia `.2`.
+- O `.so` em `build/VocalsRack_artefacts/Release/VST3` continua sendo exclusivamente Linux. O ZIP Windows baixado está fora do checkout, em `/workspace/releases/hardware-preview-3/`.
