@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ComponentDefinitions>
+    <SubComponent>
+        <SubComponentType Name="CLA Vocals">'CVOS'</SubComponentType>
+        <ProcessCodeMatch>
+            <thng>'raPI'</thng>
+            <thng>'nsPI'</thng>
+            <ProcessCodeDescriptionID>default_stereo</ProcessCodeDescriptionID>
+            <ProcessCodeDescriptionID> StaticChainerNative_stereo  </ProcessCodeDescriptionID>
+            <ProcessCodeDescriptionID final="yes"> StaticChainer_Externals</ProcessCodeDescriptionID>
+        </ProcessCodeMatch>
+    </SubComponent>
+    <SubComponent>
+        <SubComponentType Name="CLA Vocals">'CVOX'</SubComponentType>
+        <ProcessCodeMatch>
+            <thng>'raPI'</thng>
+            <thng>'nsPI'</thng>
+            <ProcessCodeDescriptionID>default_mono_to_stereo</ProcessCodeDescriptionID>
+            <ProcessCodeDescriptionID> StaticChainerNative_stereo  </ProcessCodeDescriptionID>
+            <ProcessCodeDescriptionID final="yes"> StaticChainer_Externals</ProcessCodeDescriptionID>
+        </ProcessCodeMatch>
+    </SubComponent>
+    <ProcessCodeDescription ID="StaticChainerNative_stereo">
+        <MaxSampleRate>96000</MaxSampleRate>
+        <ProcessFunctionName>MuiltiParallelProcessTypeFunc</ProcessFunctionName>
+        <resID>22</resID>
+        <States>0</States>
+        <Coefs>0</Coefs>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="StaticChainer_Externals">
+        <ExternalReq>
+            <memSpace> 'XMEM' </memSpace>
+            <theSize> 0 </theSize>
+        </ExternalReq>
+        <ExternalReq>
+            <memSpace> 'XMEM' </memSpace>
+            <theSize> 0 </theSize>
+        </ExternalReq>
+        <ExternalReq>
+            <memSpace> 'XMEM' </memSpace>
+            <theSize> 0 </theSize>
+        </ExternalReq>
+        <ExternalReq>
+            <memSpace> 'LMEM' </memSpace>
+            <theSize> 8192 </theSize>
+        </ExternalReq>
+    </ProcessCodeDescription>
+</ComponentDefinitions>

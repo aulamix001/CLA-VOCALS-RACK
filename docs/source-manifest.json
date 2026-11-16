@@ -1,0 +1,77 @@
+[
+  {
+    "path": "docs/source/0fbdc310-a631-4c7e-b4c6-3453b28981f1/1001.xml",
+    "sha256": "05e8460590350ab8b494d3c4bc5689053df3b764114f3c8ff6ec28f635b228f9",
+    "bytes": 4515
+  },
+  {
+    "path": "docs/source/1bc03fa7-035a-4ff7-8901-f4152d75c564/1010.xml",
+    "sha256": "098e691831f818c8386499313be1c86e9dcdeebcbbe2341515bb6d8aae04df4f",
+    "bytes": 17389
+  },
+  {
+    "path": "docs/source/29ced1c5-6cf7-4eca-8547-2b7be18ef668/1001.xml",
+    "sha256": "dec679f8ced68c9f5e2eb8a97e84cba9619995dd9411db4cbd19fd4d85ec340e",
+    "bytes": 321
+  },
+  {
+    "path": "docs/source/36914cca-19a4-43bd-a617-3d9f281acdfa/1004.xml",
+    "sha256": "f4262f75d1ba4220106d472e7be1863b07ec0a86a7a5ee52a9bf44f77587f615",
+    "bytes": 163
+  },
+  {
+    "path": "docs/source/5a3f06db-3052-424b-8cd2-4c9e094aa61f/1003.xml",
+    "sha256": "5dedf8f52856fdbcb71da40eb0035cc979778f6828611b9fc12f8e3ac6c81ee3",
+    "bytes": 5283
+  },
+  {
+    "path": "docs/source/5f7c81b7-7d58-4c6a-991e-60d024b3c91d/1011.xml",
+    "sha256": "b9b0ca79a2270132e2a2a8976b5e6c2b1ebd90d06381a01c122ded0bfda5f65f",
+    "bytes": 21129
+  },
+  {
+    "path": "docs/source/851dd7ae-7bcf-4c5d-bb80-f9398b1e4c3b/1001.xml",
+    "sha256": "a58e98f01121ce3497fd6f9e5a9941ab0f8e199a4d0bd75a1458d10ec536bdf5",
+    "bytes": 2024
+  },
+  {
+    "path": "docs/source/a5a7d223-83e0-4dc9-8bde-bd590c34021e/1000.xml",
+    "sha256": "cee5834cf71d5fea974c94ab868ea02ab93660f41d3936010931b22b94e19d37",
+    "bytes": 19986
+  },
+  {
+    "path": "docs/source/a6cddeb7-5723-4d51-8edf-aacae182d16a/1000.xml",
+    "sha256": "17a4f2fd1a0e3753849a3526c11f67ea97db820398c6de04023775020ae18cb9",
+    "bytes": 8229
+  },
+  {
+    "path": "docs/source/adcfcbcc-d28a-42b3-966c-967c60a5fc53/1100",
+    "sha256": "9d322c021dad9ab35e823d2382528fb391aef92fd31db1cd5497fa2560bc9695",
+    "bytes": 33342
+  },
+  {
+    "path": "docs/source/d02110e6-f61c-424d-960e-20775fef70ab/1001.xml",
+    "sha256": "515fd84a5809cf0133293ee75ed71491336b080bc1f9839b9bfe30a37e34300d",
+    "bytes": 754
+  },
+  {
+    "path": "docs/source/dd890fd3-6659-46b7-9406-075125b5cfc5/1000.xml",
+    "sha256": "763d813cbd5f310bf03c4710115936e01bac29d4e23b8795c0e2017f1c2f2232",
+    "bytes": 28657
+  },
+  {
+    "path": "docs/source/ea8ff153-833b-415f-989f-0a3e839c61a3/1000.xml",
+    "sha256": "cffad0ad168b6131005c35eed58eafb1668226ceab6669391ca51466a7ee5c92",
+    "bytes": 36973
+  },
+  {
+    "path": "docs/source/ed1b65ca-4369-4942-9636-01006164aa5f/CLA Vocals.pdf",
+    "sha256": "508cfaf0d0925e7c103f87c74ffd0c7be16a077adb07a7ff37cc455781eb29cd",
+    "bytes": 862379
+  },
+  {
+    "path": "assets/reference/vocals-rack-reference.png",
+    "sha256": "49eb8eb9cc8744e92502c5cb8ec10717463310efcf7d836172535c33dd7896fe",
+    "bytes": 1887780
+  }
+]

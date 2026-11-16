@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<ToolbarXML>
+    <ToolBarControl_List>
+        <ToolButton type="About">
+            <ControlRect l="2" t="2" w="177" h="15" />
+        </ToolButton>
+        <ToolButton type="Undo">
+            <ImageList>
+                <Selection>
+                    <Image ResID="406" Type="Idle" />
+                    <Image ResID="407" Type="Selected" />
+                    <Image ResID="408" Type="Disabled" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="185" t="2" w="32" h="15" />
+        </ToolButton>
+        <ToolButton type="Redo">
+            <ImageList>
+                <Selection>
+                    <Image ResID="409" Type="Idle" />
+                    <Image ResID="410" Type="Selected" />
+                    <Image ResID="411" Type="Disabled" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="219" t="2" w="32" h="15" />
+        </ToolButton>
+        <ToolButton type="Preset">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="400" Type="Idle" />
+                    <Image ResID="401" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="253" t="2" w="260" h="15" />
+        </ToolButton>
+        <ToolButton type="PrevPreset">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="402" Type="Idle" />
+                    <Image ResID="403" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="515" t="2" w="32" h="15" />
+        </ToolButton>
+        <ToolButton type="NextPreset">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="404" Type="Idle" />
+                    <Image ResID="405" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="549" t="2" w="32" h="15" />
+        </ToolButton>
+        <ToolButton type="Copy">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="412" Type="Idle" />
+                    <Image ResID="413" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="583" t="2" w="44" h="15" />
+            <TextString>A ➞ B</TextString>
+            <TextString>B ➞ A</TextString>
+        </ToolButton>
+        <ToolButton type="Switch">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="412" Type="Idle" />
+                    <Image ResID="413" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="629" t="2" w="44" h="15" />
+        </ToolButton>
+        <ToolButton type="Save">
+            <TextWin Type="Value">
+                <Font>
+                    <Color r="180" g="180" b="180" />
+                </Font>
+            </TextWin>
+            <ImageList>
+                <Selection>
+                    <Image ResID="412" Type="Idle" />
+                    <Image ResID="413" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="675" t="2" w="44" h="15" />
+            <TextString>Save</TextString>
+        </ToolButton>
+        <ToolButton type="Help">
+            <ImageList>
+                <Selection>
+                    <Image ResID="416" Type="Idle" />
+                    <Image ResID="417" Type="Selected" />
+                </Selection>
+            </ImageList>
+            <ControlRect l="721" t="2" w="20" h="15" />
+        </ToolButton>
+    </ToolBarControl_List>
+</ToolbarXML>

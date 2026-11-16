@@ -1,0 +1,1181 @@
+<?xml version="1.0"?>
+<GUITree version="4">
+ <Flag_List Affiliation="arti">
+  <NoImages />
+ </Flag_List>
+ <Flag_List>
+  <NoSelectRect />
+ </Flag_List>
+ <PluginSpecificData>
+  <ChildPlugIn>
+   <Rect l="820" t="0" w="980" h="630" />
+  </ChildPlugIn>
+ </PluginSpecificData>
+ <ToolbarInfo>
+  <define LEFT_MARGIN="2" />
+  <define SKIP_BKGColor="1" />
+  <define ABOUT_WIDTH="177" SKIP_About_Images="1" />
+ </ToolbarInfo>
+ <ViewRect_List>
+  <Rect SubComp="CVOS,CVOX" w="738" h="474" />
+ </ViewRect_List>
+ <Pict_List>
+  <Image ResID="15100" Type="About" />
+  <Image ResID="15001" SubComp="CVOS" Type="Base" />
+  <Image ResID="15000" SubComp="CVOX" Type="Base" />
+  <Image ResID="30000" SubComp="CVOS,CVOX" Type="Icon" />
+ </Pict_List>
+ <TabOrder_List>
+  <TabHORIZ>
+   <Control Name="Bass Color" />
+   <Control Name="Treble Color" />
+   <Control Name="Compress Color" />
+   <Control Name="Reverb Color" />
+   <Control Name="Delay Color" />
+   <Control Name="Pitch Color" />
+   <Control Name="Sensitivity" />
+   <Control Name="Bass" />
+   <Control Name="Treble" />
+   <Control Name="Compress" />
+   <Control Name="Reverb" />
+   <Control Name="Delay" />
+   <Control Name="Pitch" />
+   <Control Name="Output" />
+   <Control Name="Balance" SubComp="CVOS" />
+  </TabHORIZ>
+  <TabVERT>
+   <Control Name="Sensitivity" />
+   <Control Name="Balance" SubComp="CVOS" />
+   <Control Name="Bass Color" />
+   <Control Name="Bass" />
+   <Control Name="Treble Color" />
+   <Control Name="Treble" />
+   <Control Name="Compress Color" />
+   <Control Name="Compress" />
+   <Control Name="Reverb Color" />
+   <Control Name="Reverb" />
+   <Control Name="Delay Color" />
+   <Control Name="Delay" />
+   <Control Name="Pitch Color" />
+   <Control Name="Pitch" />
+   <Control Name="Output" />
+  </TabVERT>
+ </TabOrder_List>
+ <ControlOrder_List>
+  <ControlOrder SubComp="CVOS">
+   <Control Name="Sensitivity" />
+   <Control Name="Bass" />
+   <Control Name="Bass Color" />
+   <Control Name="Bass Color 1" />
+   <Control Name="Bass Color 2" />
+   <Control Name="Bass Color 3" />
+   <Control Name="Treble" />
+   <Control Name="Treble Color" />
+   <Control Name="Treble Color 1" />
+   <Control Name="Treble Color 2" />
+   <Control Name="Treble Color 3" />
+   <Control Name="Compress" />
+   <Control Name="Compress Color" />
+   <Control Name="Compress Color 1" />
+   <Control Name="Compress Color 2" />
+   <Control Name="Compress Color 3" />
+   <Control Name="Reverb" />
+   <Control Name="Reverb Color" />
+   <Control Name="Reverb Color 1" />
+   <Control Name="Reverb Color 2" />
+   <Control Name="Reverb Color 3" />
+   <Control Name="Delay" />
+   <Control Name="Delay Color" />
+   <Control Name="Delay Color 1" />
+   <Control Name="Delay Color 2" />
+   <Control Name="Delay Color 3" />
+   <Control Name="Pitch" />
+   <Control Name="Pitch Color" />
+   <Control Name="Pitch Color 1" />
+   <Control Name="Pitch Color 2" />
+   <Control Name="Pitch Color 3" />
+   <Control Name="Output" />
+   <Control Name="Balance" />
+   <Control Name="Sensitivity Led" />
+   <Control Name="Input VU Left" />
+   <Control Name="Input VU Right" />
+   <Control Name="Input Clip Left" />
+   <Control Name="Input Clip Right" />
+   <Control Name="Output VU Left" />
+   <Control Name="Output VU Right" />
+   <Control Name="Output Clip Left" />
+   <Control Name="Output Clip Right" />
+  </ControlOrder>
+  <ControlOrder SubComp="CVOX">
+   <Control Name="Sensitivity Led" />
+   <Control Name="Sensitivity" />
+   <Control Name="Bass" />
+   <Control Name="Bass Color" />
+   <Control Name="Bass Color 1" />
+   <Control Name="Bass Color 2" />
+   <Control Name="Bass Color 3" />
+   <Control Name="Treble" />
+   <Control Name="Treble Color" />
+   <Control Name="Treble Color 1" />
+   <Control Name="Treble Color 2" />
+   <Control Name="Treble Color 3" />
+   <Control Name="Compress" />
+   <Control Name="Compress Color" />
+   <Control Name="Compress Color 1" />
+   <Control Name="Compress Color 2" />
+   <Control Name="Compress Color 3" />
+   <Control Name="Reverb" />
+   <Control Name="Reverb Color" />
+   <Control Name="Reverb Color 1" />
+   <Control Name="Reverb Color 2" />
+   <Control Name="Reverb Color 3" />
+   <Control Name="Delay" />
+   <Control Name="Delay Color" />
+   <Control Name="Delay Color 1" />
+   <Control Name="Delay Color 2" />
+   <Control Name="Delay Color 3" />
+   <Control Name="Pitch" />
+   <Control Name="Pitch Color" />
+   <Control Name="Pitch Color 1" />
+   <Control Name="Pitch Color 2" />
+   <Control Name="Pitch Color 3" />
+   <Control Name="Output" />
+   <Control Name="Input VU Left" />
+   <Control Name="Input Clip Left" />
+   <Control Name="Output VU Left" />
+   <Control Name="Output VU Right" />
+   <Control Name="Output Clip Left" />
+   <Control Name="Output Clip Right" />
+  </ControlOrder>
+ </ControlOrder_List>
+ <Control_List>
+  <cCONTROLLER Name="Sensitivity Led">
+   <Class Type="RotationKnob">
+    <Image ResID="13050" SequenceSteps="24" />
+   </Class>
+   <MaxSelection>0</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="52" t="189" w="28" h="25" />
+   <ParameterList>
+    <Param Name="PARAM_SENSITIVITY_LED" UpdateGraphics="true">
+     <RegisterType>OptionReset</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Sensitivity">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="49" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="49" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="999" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_INPUT_GAIN" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="48" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Bass">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="186" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="186" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_BASS" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="185" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Bass Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="176" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_BASS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="600" />
+       <Image ResID="603" />
+       <Image ResID="602" />
+       <Image ResID="601" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Bass Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="181" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_BASS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Bass Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="181" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_BASS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Bass Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="181" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_BASS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Treble">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="253" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="253" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_TREBLE" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="252" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Treble Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="243" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_TREBLE_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="610" />
+       <Image ResID="613" />
+       <Image ResID="612" />
+       <Image ResID="611" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Treble Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="247" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_TREBLE_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Treble Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="247" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_TREBLE_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Treble Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="247" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_TREBLE_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Compress">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="319" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="319" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_COMPRESS" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="318" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Compress Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="309" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_COMPRESS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="620" />
+       <Image ResID="623" />
+       <Image ResID="622" />
+       <Image ResID="621" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Compress Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="313" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_COMPRESS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Compress Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="313" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_COMPRESS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Compress Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="313" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_COMPRESS_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Reverb">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="386" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="386" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_REVERB" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="385" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Reverb Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="376" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_REVERB_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="630" />
+       <Image ResID="633" />
+       <Image ResID="632" />
+       <Image ResID="631" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Reverb Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="381" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_REVERB_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Reverb Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="381" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_REVERB_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Reverb Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="381" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_REVERB_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Delay">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="452" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="452" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_DELAY" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="451" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Delay Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="442" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_DELAY_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="640" />
+       <Image ResID="643" />
+       <Image ResID="642" />
+       <Image ResID="641" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Delay Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="446" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_DELAY_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Delay Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="446" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_DELAY_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Delay Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="446" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_DELAY_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Pitch">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="519" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="519" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_PITCH" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="518" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Pitch Color">
+   <Class Type="Toggle" />
+   <MaxSelection>3</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="508" t="117" w="55" h="81" />
+   <Flags>
+    <Automatable />
+    <NoMultipleSelection />
+   </Flags>
+   <ImageList>
+    <Image ResID="704" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="700" Type="Idle" />
+     <Image ResID="703" Type="Automated" />
+     <Image ResID="702" Type="Selected" />
+     <Image ResID="701" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_PITCH_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="650" />
+       <Image ResID="653" />
+       <Image ResID="652" />
+       <Image ResID="651" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Pitch Color 1">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="511" t="140" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_PITCH_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="1">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Pitch Color 2">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="511" t="128" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_PITCH_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="2">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Pitch Color 3">
+   <Class Type="FixedStateToggleWithOff" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="511" t="116" w="45" h="12" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_PITCH_COLOR" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType State="3">FixedState</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Output">
+   <Class Type="Slider">
+    <Image ResID="1005" Type="Shadow" />
+    <BackGroundPictRect l="655" t="210" w="43" h="215" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="655" t="210" w="34" h="209" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <EraseWithBackground />
+    <SliderMouseTrackKnob />
+   </Flags>
+   <ImageList>
+    <Image ResID="1004" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="1000" Type="Idle" />
+     <Image ResID="1003" Type="Automated" />
+     <Image ResID="1002" Type="Selected" />
+     <Image ResID="1001" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_OUTPUT_GAIN" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="654" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Balance" SubComp="CVOS">
+   <Class Type="RotationKnob">
+    <Image ResID="3000" SequenceSteps="71" />
+   </Class>
+   <MaxSelection>3</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="109" t="395" w="30" h="30" />
+   <Flags>
+    <DisplayCursor />
+    <Automatable />
+    <ReciveTextEntery />
+    <IgnoreMouseOnTextWin />
+    <HideWhenDisabled />
+   </Flags>
+   <ImageList>
+    <Image ResID="3075" Type="AlphaSelection" />
+    <Selection>
+     <Image ResID="3076" Type="Idle" />
+     <Image ResID="3073" Type="Automated" />
+     <Image ResID="3072" Type="Selected" />
+     <Image ResID="3071" Type="Active" />
+    </Selection>
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_BALANCE" UpdateGraphics="true">
+     <RegisterType>MouseVertical</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <TextWin Type="Value">
+      <Font>
+       <Color r="200" g="200" b="200" />
+      </Font>
+      <PositionRect l="106" t="454" w="37" h="13" />
+      <ShowOnHover />
+      <Image ResID="1500" Type="EraseBitmap" />
+     </TextWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input VU Left" SubComp="CVOS">
+   <Class Type="VU" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="109" t="237" w="9" h="155" />
+   <ImageList Type="BackGround">
+    <Image ResID="2000" />
+   </ImageList>
+   <ImageList>
+    <Image ResID="2001" Type="ForeGround" />
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input VU Left" SubComp="CVOX">
+   <Class Type="VU" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="109" t="237" w="31" h="155" />
+   <ImageList Type="BackGround">
+    <Image ResID="2020" />
+   </ImageList>
+   <ImageList>
+    <Image ResID="2021" Type="ForeGround" />
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input VU Right" SubComp="CVOS">
+   <Class Type="VU" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="131" t="237" w="9" h="155" />
+   <ImageList Type="BackGround">
+    <Image ResID="2002" />
+   </ImageList>
+   <ImageList>
+    <Image ResID="2003" Type="ForeGround" />
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_R" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input Clip Left" SubComp="CVOS">
+   <Class Type="Toggle" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="109" t="227" w="9" h="5" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="2012" />
+       <Image ResID="2013" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input Clip Left" SubComp="CVOX">
+   <Class Type="Toggle" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="109" t="227" w="31" h="5" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="2022" />
+       <Image ResID="2023" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Input Clip Right" SubComp="CVOS">
+   <Class Type="Toggle" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="131" t="227" w="9" h="5" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_IN_VU_R" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="2014" />
+       <Image ResID="2015" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Output VU Left">
+   <Class Type="VU" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="599" t="237" w="9" h="155" />
+   <ImageList Type="BackGround">
+    <Image ResID="2004" />
+   </ImageList>
+   <ImageList>
+    <Image ResID="2005" Type="ForeGround" />
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_OUT_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Output VU Right">
+   <Class Type="VU" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>vertical</Direction>
+   <ControlRect l="621" t="237" w="9" h="155" />
+   <ImageList Type="BackGround">
+    <Image ResID="2006" />
+   </ImageList>
+   <ImageList>
+    <Image ResID="2007" Type="ForeGround" />
+   </ImageList>
+   <ParameterList>
+    <Param Name="PARAM_OUT_VU_R" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Output Clip Left">
+   <Class Type="Toggle" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="599" t="227" w="9" h="5" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_OUT_VU_L" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="2008" />
+       <Image ResID="2009" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+  <cCONTROLLER Name="Output Clip Right">
+   <Class Type="Toggle" />
+   <MaxSelection>1</MaxSelection>
+   <Direction>toggle</Direction>
+   <ControlRect l="621" t="227" w="9" h="5" />
+   <Flags>
+    <NoMultipleSelection />
+   </Flags>
+   <ParameterList>
+    <Param Name="PARAM_OUT_VU_R" UpdateGraphics="true">
+     <RegisterType>MouseDown</RegisterType>
+     <RegisterType>OptionReset</RegisterType>
+     <BitmapWin Type="AlgBitmap">
+      <ImageList>
+       <Image ResID="2010" />
+       <Image ResID="2011" />
+      </ImageList>
+     </BitmapWin>
+    </Param>
+   </ParameterList>
+  </cCONTROLLER>
+ </Control_List>
+</GUITree>

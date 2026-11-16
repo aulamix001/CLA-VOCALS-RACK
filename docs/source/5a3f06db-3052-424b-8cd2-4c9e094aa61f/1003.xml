@@ -1,0 +1,155 @@
+
+<StaticChainerDef>
+  <StaticChainDef ChainerSubComp="CVOS">
+    <Slots>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="Mix_1397506888" PluginSubComp="SCHS">
+      </Slot>
+      <Slot Name="EQ_1448169779" PluginSubComp="NEQS">
+      </Slot>
+      <Slot Name="Mix_1278287904" PluginSubComp="L1CS">
+      </Slot>
+      <Slot Name="Comp_825308982" PluginSubComp="76CS">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="Rvb_1381388866" PluginSubComp="RRFS">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dly_1212302412" PluginSubComp="HBDS">
+      </Slot>
+      <Slot Name="Dly_1398100052" PluginSubComp="MT2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Mod_1464091212" PluginSubComp="WD2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+    </Slots>
+  </StaticChainDef>
+  <StaticChainDef ChainerSubComp="CVOX">
+    <Slots>
+      <Slot Name="Gain_1163284300" PluginSubComp="G2NM">
+      </Slot>
+      <Slot Name="Mix_1397506888" PluginSubComp="SCHM">
+      </Slot>
+      <Slot Name="EQ_1448169779" PluginSubComp="NEQM">
+      </Slot>
+      <Slot Name="Mix_1278287904" PluginSubComp="L1CM">
+      </Slot>
+      <Slot Name="Comp_825308982" PluginSubComp="76CM">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSM">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="Rvb_1381388866" PluginSubComp="RRFS">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dly_1212302412" PluginSubComp="HBDS">
+      </Slot>
+      <Slot Name="Dly_1398100052" PluginSubComp="MT2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Mod_1464091212" PluginSubComp="WD2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+    </Slots>
+  </StaticChainDef>
+  <StaticChainDef ChainerSubComp="CLVS">
+    <Slots>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="Mix_1397506888" PluginSubComp="SCHS">
+      </Slot>
+      <Slot Name="EQ_1448169779" PluginSubComp="NEQS">
+      </Slot>
+      <Slot Name="Mix_1278287904" PluginSubComp="L1CS">
+      </Slot>
+      <Slot Name="Comp_825308982" PluginSubComp="76CS">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="Rvb_1381388866" PluginSubComp="RRFS">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dly_1212302412" PluginSubComp="HBDS">
+      </Slot>
+      <Slot Name="Dly_1398100052" PluginSubComp="MT2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Mod_1464091212" PluginSubComp="WD2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+    </Slots>
+  </StaticChainDef>
+  <StaticChainDef ChainerSubComp="CLVX">
+    <Slots>
+      <Slot Name="Gain_1163284300" PluginSubComp="G2NM">
+      </Slot>
+      <Slot Name="Mix_1397506888" PluginSubComp="SCHM">
+      </Slot>
+      <Slot Name="EQ_1448169779" PluginSubComp="NEQM">
+      </Slot>
+      <Slot Name="Mix_1278287904" PluginSubComp="L1CM">
+      </Slot>
+      <Slot Name="Comp_825308982" PluginSubComp="76CM">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSM">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dess_1380205907" PluginSubComp="RDSS">
+      </Slot>
+      <Slot Name="Rvb_1381388866" PluginSubComp="RRFS">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GA2S">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Dly_1212302412" PluginSubComp="HBDS">
+      </Slot>
+      <Slot Name="Dly_1398100052" PluginSubComp="MT2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+      <Slot Name="StartWetPlugins" PluginSubComp="">
+      </Slot>
+      <Slot Name="Mod_1464091212" PluginSubComp="WD2S">
+      </Slot>
+      <Slot Name="Gain_1163284300" PluginSubComp="GNDS">
+      </Slot>
+    </Slots>
+  </StaticChainDef>
+</StaticChainerDef>

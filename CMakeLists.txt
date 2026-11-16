@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.22)
+project(VocalsRack VERSION 0.1.0 LANGUAGES C CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(WIN32 AND NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+    message(FATAL_ERROR "Vocals Rack requires Windows x64")
+endif()
+include(FetchContent)
+FetchContent_Declare(JUCE GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
+    GIT_TAG 51a8a6d7aeae7326956d747737ccf1575e61e209 GIT_SHALLOW FALSE)
+FetchContent_MakeAvailable(JUCE)
+juce_add_binary_data(RackAssets SOURCES assets/reference/vocals-rack-reference.png)
+juce_add_plugin(VocalsRack COMPANY_NAME "AulaMix" BUNDLE_ID "com.aulamix.vocalsrack"
+    PLUGIN_MANUFACTURER_CODE Aumx PLUGIN_CODE Vcrk
+    FORMATS VST3 PRODUCT_NAME "Vocals Rack" IS_SYNTH FALSE
+    NEEDS_MIDI_INPUT FALSE NEEDS_MIDI_OUTPUT FALSE IS_MIDI_EFFECT FALSE
+    COPY_PLUGIN_AFTER_BUILD FALSE VST3_CATEGORIES Fx)
+target_sources(VocalsRack PRIVATE Source/PluginProcessor.cpp Source/PluginEditor.cpp)
+target_compile_definitions(VocalsRack PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_VST3_CAN_REPLACE_VST2=0)
+target_link_libraries(VocalsRack PRIVATE RackAssets juce::juce_audio_utils juce::juce_dsp
+    PUBLIC juce::juce_recommended_config_flags juce::juce_recommended_warning_flags)
+include(CTest)
+if(BUILD_TESTING)
+    add_executable(RackTests tests/ProcessorTests.cpp)
+    target_include_directories(RackTests PRIVATE "${JUCE_SOURCE_DIR}/modules")
+    target_link_libraries(RackTests PRIVATE VocalsRack)
+    add_test(NAME RackProcessor COMMAND RackTests)
+    add_test(NAME EditorRender COMMAND RackTests --render "${CMAKE_BINARY_DIR}/editor-preview.png")
+    find_package(Python3 COMPONENTS Interpreter)
+    if(Python3_FOUND)
+        add_test(NAME ReferenceIntegrity COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/verify_sources.py)
+    endif()
+endif()

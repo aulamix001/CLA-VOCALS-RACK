@@ -1,0 +1,203 @@
+<?xml version="1.0" standalone="yes"?>
+
+<ComponentDefinitions>
+	<FileName>SubComponentDefault.xml</FileName>
+    <SubComponent>
+        <SubComponentType>'????'</SubComponentType>
+        <ProcessCodeMatch>
+      <thng>'ofPI'</thng>
+      <!-- Offline Native -->
+      <thng>'raPI'</thng>
+      <!-- Real Time native -->
+      <thng>'nsPI'</thng>
+      <!-- NetShell  -->
+      <thng>'sgTI'</thng>
+      <!-- sgTI  -->
+      <thng>'sgDS'</thng>
+      <!-- DSP/TDM->SoundGrid  -->
+      <thng>'sgNT'</thng>
+      <!-- Matrix Aware Native plugin  -->
+      <thng>'mxNT'</thng>
+      <!-- Matrix Aware SoundGrid plugin  -->
+      <thng>'mxNS'</thng>
+      <!-- Real Time native->SoundGrid  -->
+      <thng>'sgXP'</thng>
+      <!-- AAX external processor AAX->SoundGrid  -->
+          <ProcessCodeDescriptionID OS="Mac">default_PPC</ProcessCodeDescriptionID>
+          <ProcessCodeDescriptionID OS="iOS">default_PPC</ProcessCodeDescriptionID>
+          <ProcessCodeDescriptionID OS="Win">default_x86</ProcessCodeDescriptionID>
+          <ProcessCodeDescriptionID OS="Linux">default_x86</ProcessCodeDescriptionID>
+      </ProcessCodeMatch>
+    </SubComponent>
+  <ProcessCodeDescription ID="Empty_Final">
+  </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_PPC">
+        <resType>'wvPP'</resType>
+        <resID>ResBase</resID>
+        <ProcessorFamily>PPC</ProcessorFamily>
+        <CanRunOn>
+            <ProcessorSpecific>AnyPPC</ProcessorSpecific>
+        </CanRunOn>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_x86">
+        <resID>ResBase</resID>
+        <ProcessorFamily>x86</ProcessorFamily>
+        <CanRunOn>
+            <ProcessorSpecific>Anyx86</ProcessorSpecific>
+        </CanRunOn>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono">
+        <NumInputs>1</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>1</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono_to_stereo">
+        <NumInputs>1</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_stereo">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_5dot0">
+        <NumInputs>5</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>5</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_5dot1">
+        <NumInputs>6</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>6</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+	<ProcessCodeDescription ID="default_7dot0dot2">
+		<NumInputs>9</NumInputs>
+		<NumSideChainInputs>0</NumSideChainInputs>
+		<NumOutputs>9</NumOutputs>
+		<MaxSampleRate>48000</MaxSampleRate>
+		<MIDIInput>false</MIDIInput>
+	</ProcessCodeDescription>
+	<ProcessCodeDescription ID="default_7dot1dot2">
+		<NumInputs>10</NumInputs>
+		<NumSideChainInputs>0</NumSideChainInputs>
+		<NumOutputs>10</NumOutputs>
+		<MaxSampleRate>48000</MaxSampleRate>
+		<MIDIInput>false</MIDIInput>
+	</ProcessCodeDescription>
+	<ProcessCodeDescription ID="default_7dot0dot4">
+		<NumInputs>11</NumInputs>
+		<NumSideChainInputs>0</NumSideChainInputs>
+		<NumOutputs>11</NumOutputs>
+		<MaxSampleRate>48000</MaxSampleRate>
+		<MIDIInput>false</MIDIInput>
+	</ProcessCodeDescription>
+	<ProcessCodeDescription ID="default_7dot1dot4">
+		<NumInputs>12</NumInputs>
+		<NumSideChainInputs>0</NumSideChainInputs>
+		<NumOutputs>12</NumOutputs>
+		<MaxSampleRate>48000</MaxSampleRate>
+		<MIDIInput>false</MIDIInput>
+	</ProcessCodeDescription>
+	<ProcessCodeDescription ID="default_5dot1_to_stereo">
+        <NumInputs>6</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_5dot0_to_stereo">
+        <NumInputs>5</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_LRC_to_stereo">
+        <NumInputs>3</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono_to_5dot0">
+        <NumInputs>1</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>5</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono_to_5dot1">
+        <NumInputs>1</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>6</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_stereo_to_5dot0">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>5</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_stereo_to_5dot1">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>6</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_stereo_to_7dot1">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>0</NumSideChainInputs>
+        <NumOutputs>8</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_5dot0_to_5dot1">
+	    <NumInputs> 5 </NumInputs>
+	    <NumSideChainInputs> 0 </NumSideChainInputs>
+	    <NumOutputs> 6 </NumOutputs>
+        <MaxSampleRate> 48000 </MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono_side_chain">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>1</NumSideChainInputs>
+        <NumOutputs>1</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_mono_to_stereo_side_chain">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>1</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_stereo_side_chain">
+        <NumInputs>4</NumInputs>
+        <NumSideChainInputs>2</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>false</MIDIInput>      
+    </ProcessCodeDescription>
+    <ProcessCodeDescription ID="default_instrument_side_chain">
+        <NumInputs>2</NumInputs>
+        <NumSideChainInputs>2</NumSideChainInputs>
+        <NumOutputs>2</NumOutputs>
+        <MaxSampleRate>48000</MaxSampleRate>
+        <MIDIInput>true</MIDIInput>
+    </ProcessCodeDescription>
+</ComponentDefinitions>

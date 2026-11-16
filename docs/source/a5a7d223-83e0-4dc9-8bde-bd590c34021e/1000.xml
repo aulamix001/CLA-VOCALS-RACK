@@ -1,0 +1,582 @@
+
+<Parameter_List version="1">
+  <!-- Insert plug-in specific params ONLY at the bottom...-->
+  <Parameter Name="PARAM_INPUT_GAIN">
+    <Scale>
+      <Minimum>-10.0</Minimum>
+      <Maximum>10.0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <DisplayFunction>DisplayVuHold</DisplayFunction>
+    <Label>Sensitivity</Label>
+    <IgnoreOnPresetLoad>Input Sensitivity</IgnoreOnPresetLoad>
+    <Units>dB</Units>
+  </Parameter>
+  <Parameter Name="PARAM_DRY_OUTPUT_GAIN">
+    <Scale>
+      <Minimum>-144</Minimum>
+      <Maximum>0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <ResetValue Type="RealWorld">0.0</ResetValue>
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <DisplayFunction>DisplayVuHold</DisplayFunction>
+    <Label>Dry Ouput</Label>
+  </Parameter>
+  <Parameter Name="PARAM_WET_INPUT_GAIN">
+    <Scale>
+      <Minimum>-20</Minimum>
+      <Maximum>0</Maximum>
+      <Resolution>0.01</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <DisplayFunction>DisplayFXControl</DisplayFunction>
+    <ResetValue Type="RealWorld">0.0</ResetValue>
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <Label>Wet Input</Label>
+  </Parameter>
+  <Parameter Name="PARAM_WET_OUTPUT_GAIN">
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <Scale>
+      <Minimum>-144</Minimum>
+      <Maximum>0</Maximum>
+      <Resolution>1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <Label>Wet Output</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayVuHold</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_OUTPUT_GAIN" Parent="PARAM_INPUT_GAIN">
+    <Label>Outupt</Label>
+    <IgnoreOnPresetLoad/>
+  </Parameter>
+  <!-- Sensitivity led params -->
+  <Parameter Name="PARAM_SENSITIVITY_LED">
+    <Scale>
+      <Minimum>-144</Minimum>
+      <Maximum>0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <InitialValue Type="state">0</InitialValue>
+    <Label>Sensitivity Led</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Input</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_SL_SLOT_INDEX">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>1000</Maximum>
+      <Resolution>1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0</InitialValue>
+  </Parameter>
+  <Parameter Name="PARAM_SL_SLOT_LEFT_INDEX">
+    <Scale>
+      <Minimum>-1</Minimum>
+      <Maximum>1000</Maximum>
+      <Resolution>1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0</InitialValue>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_X1">
+    <Scale>
+      <Minimum>-144</Minimum>
+      <Maximum>20</Maximum>
+      <Resolution>0.2</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">-144.0</InitialValue>
+    <Label>X1</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat3</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_X2" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-9.0</InitialValue>
+    <Label>X2</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_X3" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-3.0</InitialValue>
+    <Label>X3</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_X4" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">3.0</InitialValue>
+    <Label>X4</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_X5" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">6.0</InitialValue>
+    <Label>X5</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_Y1" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-144.0</InitialValue>
+    <Label>Y1</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_Y2" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-108.0</InitialValue>
+    <Label>Y2</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_Y3" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-72.0</InitialValue>
+    <Label>Y3</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_Y4" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">-36.0</InitialValue>
+    <Label>Y4</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SENSITIVITY_Y5" Parent="PARAM_SENSITIVITY_X1">
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <Label>Y5</Label>
+  </Parameter>
+  <Parameter Name="PARAM_SL_SLOT_RIGHT_INDEX" Parent="PARAM_SL_SLOT_LEFT_INDEX"/>
+  <Parameter Name="PARAM_DRY_OUTPUT_GAIN_MONO2STEREO_REDUCTION">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <Resolution>3</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <ResetValue Type="state">0</ResetValue>
+    <InitialValue Type="state">0</InitialValue>
+    <Label>Dry MS Reduction</Label>
+  </Parameter>
+  <Parameter Name="PARAM_DRY_OUTPUT_GAIN_DIRECT_IN_OUT">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Resolution>2</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <ResetValue Type="RealWorld">0</ResetValue>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Label>Main Mute</Label>
+  </Parameter>
+  <Parameter Name="PARAM_LEFT_PAN">
+    <Scale>
+      <Minimum>-100.0</Minimum>
+      <Maximum>+100.0</Maximum>
+      <Resolution>1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0.0</InitialValue>
+    <Label>Left Pan</Label>
+    <DisplayFunction>DisplayFloat0</DisplayFunction>
+  </Parameter>
+  
+  <!--  Place holders for future use -->
+  <Parameter Name="PARAM_PLACE_HOLDER5">
+    <ResetValue Type="RealWorld">0</ResetValue>
+    <InitialValue Type="RealWorld">0</InitialValue>
+  </Parameter>
+  <Parameter Name="PARAM_PLACE_HOLDER6" Parent="PARAM_PLACE_HOLDER5"/>
+  <Parameter Name="PARAM_PLACE_HOLDER7" Parent="PARAM_PLACE_HOLDER5"/>
+  <Parameter Name="PARAM_PLACE_HOLDER8" Parent="PARAM_PLACE_HOLDER5"/>
+  <Parameter Name="PARAM_PLACE_HOLDER9" Parent="PARAM_PLACE_HOLDER5"/>
+  <Parameter Name="PARAM_PLACE_HOLDER10" Parent="PARAM_PLACE_HOLDER5"/>
+  <!-- Meters params -->
+  <Parameter Name="PARAM_DISPLAY_METER_SELECTOR">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Resolution>2</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <ResetValue Type="state">0</ResetValue>
+    <InitialValue Type="state">0</InitialValue>
+    <DisplayFunction>DisplayMeterSelector</DisplayFunction>
+    <Label>Meter Selector</Label>
+  </Parameter>
+  <Parameter Name="PARAM_DISPLAY_METER">
+    <Scale>
+      <Minimum>-24.0</Minimum>
+      <Maximum>0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <InitialValue Type="state">0</InitialValue>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Input</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+      <Smoothing>
+        <AttackTimeCoeff>0.86</AttackTimeCoeff>
+        <ReleaseTimeCoeff>0.95</ReleaseTimeCoeff>
+      </Smoothing>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_OUT_VU_L">
+    <Scale>
+      <Minimum>-26.0</Minimum>
+      <Maximum>0.0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="state">0</InitialValue>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <Label>Out VU L</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <DisplayInControlSurface>
+          <OrderInControlSurface SubComp="CVOS,CLVS">3</OrderInControlSurface>
+          <OrderInControlSurface SubComp="CVOX,CLVX">2</OrderInControlSurface>
+        </DisplayInControlSurface>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Output</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_OUT_VU_R" Parent="PARAM_OUT_VU_L">
+    <Scale>
+      <Minimum>-26.0</Minimum>
+      <Maximum>0.0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="state">0</InitialValue>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <Label>Out VU R</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <DisplayInControlSurface>
+          <OrderInControlSurface SubComp="CVOS,CLVS">4</OrderInControlSurface>
+          <OrderInControlSurface SubComp="CVOX,CLVX">3</OrderInControlSurface>
+        </DisplayInControlSurface>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Output</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_IN_VU_L" Parent="PARAM_OUT_VU_L">
+    <Scale>
+      <Minimum>-26.0</Minimum>
+      <Maximum>0.0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="state">0</InitialValue>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <Label>In VU L</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <DisplayInControlSurface>
+          <OrderInControlSurface>1</OrderInControlSurface>
+        </DisplayInControlSurface>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Input</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_IN_VU_R" Parent="PARAM_OUT_VU_L">
+    <Scale>
+      <Minimum>-26.0</Minimum>
+      <Maximum>0.0</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="state">0</InitialValue>
+    <Flags>
+      <DisplayOnlyParam/>
+    </Flags>
+    <Label>In VU R</Label>
+    <Units>dB</Units>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+    <ExtensionClass Type="MeterWithClip">
+      <Description>
+        <DisplayInControlSurface SubComp="CVOS,CLVS">
+          <OrderInControlSurface>2</OrderInControlSurface>
+        </DisplayInControlSurface>
+        <Orientation>BottomLeft</Orientation>
+        <MeterType>Input</MeterType>
+      </Description>
+      <Dsp>
+        <ReadResetVal Type="Native"> -1.0</ReadResetVal>
+        <ReadResetVal Type="DSP">     0.0</ReadResetVal>
+      </Dsp>
+      <Clip>
+        <ClipLevel>1.0</ClipLevel>
+      </Clip>
+    </ExtensionClass>
+  </Parameter>
+  <Parameter Name="PARAM_CYCLES_USAGE">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>100</Maximum>
+      <Resolution>1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Flags>
+      <DontReadFromPreset/>
+      <DontSaveToPreset/>
+      <AlwaysUpdate/>
+    </Flags>
+    <DisplayFunction>DisplayFloat0</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_STATES_USAGE">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>100</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Flags>
+      <DontReadFromPreset/>
+      <DontSaveToPreset/>
+      <AlwaysUpdate/>
+    </Flags>
+    <DisplayFunction>DisplayMinMax</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_COEFS_USAGE">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>100</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Flags>
+      <DontReadFromPreset/>
+      <DontSaveToPreset/>
+      <AlwaysUpdate/>
+    </Flags>
+    <DisplayFunction>DisplayMinMax</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_PRESET_FLAVOR">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <Resolution>3</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <Label>Bass Type</Label>
+    <ResetValue Type="state">0</ResetValue>
+    <InitialValue Type="state">0</InitialValue>
+    <DisplayFunction>DisplayFloat0</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_CHILD_TO_DRAW">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>17</Maximum>
+      <Resolution>18</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <ResetValue Type="state">0</ResetValue>
+    <InitialValue Type="state">0</InitialValue>
+    <Label>Child Plug-Ins</Label>
+  </Parameter>
+  <Parameter Name="PARAM_BYPASS_STATE">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Resolution>2</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <InitialValue Type="state">0</InitialValue>
+  </Parameter>
+  <!-- Static chainer must params end here. now must implement bypass params acording to slots order -->
+  <Parameter Name="PARAM_Gain_1_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Gain_1</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Mix_1397506888_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Mix_1397506888</Label>
+  </Parameter>
+  <Parameter Name="PARAM_EQ_1448169779_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>EQ_1448169779</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Mix_1278287904_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Mix_1278287904</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Comp_825308982_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Comp_825308982</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Dess_1380205907_1_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Dess_1380205907_1</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Dess_1380205907_2_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Dess_1380205907_2</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Rvb_1381388866_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Rvb_1381388866</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Gain_2_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Gain_2</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Dly_1212302412_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Dly_1212302412</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Dly_1398100052_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Dly_1398100052</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Gain_3_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Gain_3</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Mod_1464091212_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Mod_1464091212</Label>
+  </Parameter>
+  <Parameter Name="PARAM_Gain_4_BYPASS" Parent="PARAM_BYPASS_STATE">
+    <Label>Gain_4</Label>
+  </Parameter>
+  <!-- You may insert plug-in specific params after this line... -->
+
+    <!--Parameter Name="PARAM_SENSITIVITY">
+        <Scale>
+            <Minimum>-12</Minimum>
+            <Maximum>12</Maximum>
+            <Resolution>0.1</Resolution>
+            <ScaleType>linear</ScaleType>
+        </Scale>
+        <ResetValue Type="RealWorld">0</ResetValue>
+        <InitialValue Type="RealWorld">0</InitialValue>
+        <Label>Sensitivity</Label>
+        <DisplayFunction>DisplayFloat1</DisplayFunction>
+    </Parameter-->
+  <Parameter Name="PARAM_BASS">
+    <Scale>
+      <Minimum>-10</Minimum>
+      <Maximum>10</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <ResetValue Type="RealWorld">0</ResetValue>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Label>Bass 1</Label>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_BASS_COLOR">
+    <Scale>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <Resolution>4</Resolution>
+      <ScaleType>toggle</ScaleType>
+    </Scale>
+    <ResetValue Type="RealWorld">1</ResetValue>
+    <InitialValue Type="RealWorld">1</InitialValue>
+    <Label>Bass Color</Label>
+    <DisplayFunction>DisplayBassColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_TREBLE" Parent="PARAM_BASS">
+    <Label>Treble 1</Label>
+  </Parameter>
+  <Parameter Name="PARAM_TREBLE_COLOR" Parent="PARAM_BASS_COLOR">
+    <Label>Treble Color</Label>
+    <DisplayFunction>DisplayTrebleColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_COMPRESS" Parent="PARAM_BASS">
+    <Label>Compress</Label>
+  </Parameter>
+  <Parameter Name="PARAM_COMPRESS_COLOR" Parent="PARAM_BASS_COLOR">
+    <Label>Compress Color</Label>
+    <DisplayFunction>DisplayCompressColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_REVERB" Parent="PARAM_BASS">
+    <Label>Reverb</Label>
+  </Parameter>
+  <Parameter Name="PARAM_REVERB_COLOR" Parent="PARAM_BASS_COLOR">
+    <Label>Reverb Color</Label>
+    <DisplayFunction>DisplayReverbColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_DELAY" Parent="PARAM_BASS">
+    <Label>Delay</Label>
+  </Parameter>
+  <Parameter Name="PARAM_DELAY_COLOR" Parent="PARAM_BASS_COLOR">
+    <Label>Delay Color</Label>
+    <DisplayFunction>DisplayDelayColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_PITCH" Parent="PARAM_BASS">
+    <Label>Pitch</Label>
+  </Parameter>
+  <Parameter Name="PARAM_PITCH_COLOR" Parent="PARAM_BASS_COLOR">
+    <Label>Pitch Color</Label>
+    <DisplayFunction>DisplayPitchColor</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_BALANCE">
+    <Scale>
+      <Minimum>-6</Minimum>
+      <Maximum>6</Maximum>
+      <Resolution>0.1</Resolution>
+      <ScaleType>linear</ScaleType>
+    </Scale>
+    <ResetValue Type="RealWorld">0</ResetValue>
+    <InitialValue Type="RealWorld">0</InitialValue>
+    <Label>Balance</Label>
+    <DisplayFunction>DisplayFloat1</DisplayFunction>
+  </Parameter>
+  <Parameter Name="PARAM_GEN_NOISE">
+      <Scale>
+          <Minimum>0</Minimum>
+          <Maximum>1</Maximum>
+          <Resolution>2</Resolution>
+          <ScaleType>toggle</ScaleType>
+      </Scale>
+      <InitialValue Type="RealWorld">1.0</InitialValue>
+      <ResetValue Type="RealWorld">1.0</ResetValue>
+      <Label>Noise</Label>
+  </Parameter>
+</Parameter_List>

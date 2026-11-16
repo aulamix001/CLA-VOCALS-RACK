@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+
+<cALGORITHMs>
+  <cALGORITHM>
+    <AlgType>'CLVO'</AlgType>
+    <AlgName>CLA Vocals</AlgName>
+    <UndoTypePreset/>
+    <IsTempoListener/>
+    <Relation ID="1"/>
+    <AlgNameList>
+      <Name NumChars="7">CLAVocl</Name>
+    </AlgNameList>
+  </cALGORITHM>
+</cALGORITHMs>

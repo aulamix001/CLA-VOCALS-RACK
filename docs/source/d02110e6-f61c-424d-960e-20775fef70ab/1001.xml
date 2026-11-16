@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ShellInfo>
+    <Name>CLA Vocals</Name>
+    <PluginLoadSpec>
+        <Version>
+            <Minimal>109.0</Minimal>
+            <Maximal>109.0</Maximal>
+        </Version>
+        <APIVersion>
+            <Minimal>103.0</Minimal>
+            <Maximal>103.0</Maximal>
+        </APIVersion>
+        <AffiliationList>
+            <Affiliation>arti</Affiliation>
+        </AffiliationList>
+        <PluginFolderHint>V17PluginFolder</PluginFolderHint>
+        <ScanDepth>0</ScanDepth>
+        <CheckInternalVersions>yes</CheckInternalVersions>
+        <BranchName>prd_17.1</BranchName>
+        <PartyTime>none</PartyTime>
+        <RefreshDrinks>no</RefreshDrinks>
+    </PluginLoadSpec>
+</ShellInfo>
