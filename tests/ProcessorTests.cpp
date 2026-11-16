@@ -64,8 +64,15 @@ int main(int argc, char** argv)
                 for(auto* child:editor->getChildren())require(editor->getLocalBounds().contains(child->getBounds()),"resized controls remain in panel");
             }
             p.peaks[0].store(0.22f);p.peaks[1].store(0.18f);p.peaks[2].store(0.7f);p.peaks[3].store(0.78f);
-            juce::Image image(juce::Image::ARGB, editor->getWidth(), editor->getHeight(), true);
-            juce::Graphics graphics(image); editor->paintEntireComponent(graphics, true);
+            juce::Image image(juce::Image::ARGB, editor->getWidth(), editor->getHeight(), true, juce::SoftwareImageType());
+            {
+                juce::Graphics graphics(image);
+                editor->paintEntireComponent(graphics, true);
+            } // Finish the drawing context before inspecting or encoding pixels.
+            int visiblePixels=0;
+            for(int y=0;y<image.getHeight();y+=17) for(int x=0;x<image.getWidth();x+=17)
+                if(image.getPixelAt(x,y).getBrightness()>0.12f) ++visiblePixels;
+            require(visiblePixels>100,"editor screenshot contains rendered controls, not an empty surface");
             juce::FileOutputStream stream { juce::File(argv[2]) };
             require(stream.openedOk() && stream.setPosition(0) && stream.truncate().wasOk(), "replace previous editor render");
             require(stream.openedOk() && juce::PNGImageFormat().writeImageToStream(image, stream), "render PNG");

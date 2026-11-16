@@ -216,9 +216,9 @@ void VocalsRackEditor::resized()
 void VocalsRackEditor::buildPanel()
 {
     // Construct a separate display layer. The immutable reference is never edited.
-    panel=juce::Image(juce::Image::RGB,(int)baseW,(int)baseH,true);
+    panel=juce::Image(juce::Image::RGB,(int)baseW,(int)baseH,true,juce::SoftwareImageType());
     juce::Graphics g(panel);g.drawImage(reference,panel.getBounds().toFloat());
-    juce::Image grain(juce::Image::ARGB,192,192,true);
+    juce::Image grain(juce::Image::ARGB,192,192,true,juce::SoftwareImageType());
     juce::Random random(49176);
     for(int y=0;y<grain.getHeight();++y) for(int x=0;x<grain.getWidth();++x)
         grain.setPixelAt(x,y,(random.nextBool()?juce::Colours::white:juce::Colours::black).withAlpha((float)random.nextInt(10)/255.0f));
