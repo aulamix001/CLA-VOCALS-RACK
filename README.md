@@ -44,9 +44,15 @@ ctest --test-dir build --output-on-failure
 
 O bootstrap instala ferramentas e extrai pacotes Debian verificados para `/workspace/.tools`, sem exigir acesso de escrita ao sistema. Não é necessário serviço, chave de API nem servidor. O artefato Linux serve para validar o código; não pode ser instalado numa DAW Windows.
 
+## 60 presets de fabrica
+
+O seletor na barra superior organiza 10 presets para cada categoria: Pop, Rock, Hip-Hop/Rap, R&B, Indie e voz e violao. Escolha um preset para carregar automaticamente os nove controles e os seis modos. As setas `<` e `>` percorrem o banco; o ponto amarelo indica ajustes manuais depois do carregamento. O nome e os ajustes sao mantidos ao reabrir a sessao, salvar um arquivo `.vrpreset` ou alternar A/B. O banco vem embutido no VST3, sem arquivos extras para instalar. O host pode acessar 60 programas de fabrica e um estado inicial separado.
+
+[Catalogo dos 60 presets e valores dos controles](docs/factory-presets.md).
+
 ## Interface de hardware
 
-O editor desenha faders cromados com faces curvas, reflexos, microtextura e sombras projetadas; trilhos rebaixados; seletores com moldura metálica e lâmpada amarela; parafusos; painel de metal texturizado e medidores com reflexo de vidro. O acabamento é desenhado em camadas JUCE sobre uma superfície estática em cache, preservando o cabeçalho e a carcaça da referência. O arquivo original permanece intacto. As posições da captura de demonstração não alteram os valores padrão de áudio.
+O editor usa acabamento vintage: metal envelhecido com patina e pequenos riscos, faders em niquel quente com faces curvas e sombras, molduras em latao, lampadas ambar, parafusos e laterais em nogueira. Os medidores mantem o reflexo de vidro. O acabamento é desenhado em camadas JUCE sobre uma superfície estática em cache, preservando o cabeçalho e a carcaça da referência. O arquivo original permanece intacto. As posições da captura de demonstração não alteram os valores padrão de áudio.
 
 ## Controles implementados
 

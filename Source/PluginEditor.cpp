@@ -13,19 +13,19 @@ juce::Colour metal(unsigned int c) { return juce::Colour(c); }
 void screw(juce::Graphics& g, float x, float y)
 {
     g.setColour(juce::Colours::black.withAlpha(0.8f)); g.fillEllipse(x-12, y-11, 24, 24);
-    g.setGradientFill(juce::ColourGradient(metal(0xff949795), x-9, y-9, metal(0xff171a1b), x+9, y+10, false));
+    g.setGradientFill(juce::ColourGradient(metal(0xffb09a74), x-9, y-9, metal(0xff171a1b), x+9, y+10, false));
     g.fillEllipse(x-10,y-10,20,20);
     g.setColour(metal(0xff17191a)); g.fillEllipse(x-7,y-7,14,14);
-    g.setColour(metal(0xff686b69)); g.drawEllipse(x-4,y-4,8,8,1.5f);
+    g.setColour(metal(0xff847355)); g.drawEllipse(x-4,y-4,8,8,1.5f);
     g.setColour(juce::Colours::black); g.fillEllipse(x-2,y-2,4,4);
 }
 void bezel(juce::Graphics& g, juce::Rectangle<float> r)
 {
     g.setColour(juce::Colours::black); g.fillRect(r.expanded(3));
-    g.setGradientFill(juce::ColourGradient(metal(0xff9a9c94),r.getX(),r.getY(),metal(0xff131615),r.getRight(),r.getBottom(),false));
+    g.setGradientFill(juce::ColourGradient(metal(0xffa58c61),r.getX(),r.getY(),metal(0xff131615),r.getRight(),r.getBottom(),false));
     g.fillRect(r);
     g.setColour(metal(0xff111515)); g.fillRect(r.reduced(3));
-    g.setColour(metal(0xff565950)); g.drawRect(r.reduced(4),0.6f);
+    g.setColour(metal(0xff6b5940)); g.drawRect(r.reduced(4),0.6f);
 }
 }
 juce::Slider::SliderLayout VocalsRackEditor::FaderLook::getSliderLayout(juce::Slider& s)
@@ -52,11 +52,11 @@ void VocalsRackEditor::FaderLook::drawLinearSlider(juce::Graphics& g, int, int, 
     face.closeSubPath();
     juce::DropShadow(juce::Colours::black.withAlpha(0.75f),juce::roundToInt(9*scale),{juce::roundToInt(8*scale),juce::roundToInt(9*scale)}).drawForPath(g,face);
     g.setColour(metal(0xff111415));g.fillPath(face,juce::AffineTransform::translation(6*scale,6*scale));
-    juce::ColourGradient finish(metal(0xffa2a6a7),cx,t,metal(0xffdce1e4),cx,b,false);
-    finish.addColour(0.025,metal(0xfff2f5f7));finish.addColour(0.07,metal(0xff646a6d));
-    finish.addColour(0.23,metal(0xff404548));finish.addColour(0.47,metal(0xff777e83));
-    finish.addColour(0.66,metal(0xffc5cbcf));finish.addColour(0.86,metal(0xfff6f8fa));
-    finish.addColour(0.96,metal(0xffd2d8dc));
+    juce::ColourGradient finish(metal(0xffb0aa99),cx,t,metal(0xffe2d9c5),cx,b,false);
+    finish.addColour(0.025,metal(0xfffff4db));finish.addColour(0.07,metal(0xff746d5d));
+    finish.addColour(0.23,metal(0xff494538));finish.addColour(0.47,metal(0xff898270));
+    finish.addColour(0.66,metal(0xffd0c6b1));finish.addColour(0.86,metal(0xfffff4df));
+    finish.addColour(0.96,metal(0xffdfd4bf));
     g.setGradientFill(finish);g.fillPath(face);
     {
         juce::Graphics::ScopedSaveState saved(g);g.reduceClipRegion(face);
@@ -102,8 +102,8 @@ void VocalsRackEditor::FaderLook::drawButtonBackground(juce::Graphics& g,juce::B
         auto lamp=r.reduced(10*k,9*k).translated(0,down?1.5f*k:0);
         const int mode=(int)button.getProperties().getWithDefault("colourMode",0);
         const bool lit=mode>0;
-        juce::ColourGradient light(lit?metal(0xffffffb9):metal(0xff68683e),lamp.getX(),lamp.getY(),lit?metal(0xffa9a633):metal(0xff3a3e27),lamp.getRight(),lamp.getBottom(),false);
-        light.addColour(0.45,lit?metal(0xffd2d157):metal(0xff50523a));g.setGradientFill(light);g.fillRect(lamp);
+        juce::ColourGradient light(lit?metal(0xffffe9a4):metal(0xff68683e),lamp.getX(),lamp.getY(),lit?metal(0xffa17a2d):metal(0xff3a3e27),lamp.getRight(),lamp.getBottom(),false);
+        light.addColour(0.45,lit?metal(0xffccb25b):metal(0xff50523a));g.setGradientFill(light);g.fillRect(lamp);
         g.setColour(juce::Colours::white.withAlpha(hover?0.65f:0.38f));g.drawLine(lamp.getX(),lamp.getY(),lamp.getRight(),lamp.getY(),k);
         g.setColour(juce::Colours::black.withAlpha(0.5f));g.drawRect(lamp,0.8f*k);
     }
@@ -134,9 +134,33 @@ void VocalsRackEditor::FaderLook::drawToggleButton(juce::Graphics& g,juce::Toggl
     g.setColour(b.getToggleState()?metal(0xffe3ce5c):metal(0xff9b9d97));g.setFont(juce::FontOptions((float)b.getHeight()*0.55f));
     g.drawText(b.getButtonText(),b.getLocalBounds(),juce::Justification::centred);
 }
+void VocalsRackEditor::FaderLook::drawComboBox(juce::Graphics& g,int w,int h,bool,int,int,int,int,juce::ComboBox& box)
+{
+    bezel(g,{1,1,(float)w-2,(float)h-2});
+    g.setGradientFill(juce::ColourGradient(metal(0xff28261c),0,2,metal(0xff121510),0,(float)h-2,false));
+    g.fillRect(4,4,w-8,h-8);
+    const float cx=(float)w-12,cy=(float)h*0.5f;
+    juce::Path arrow;arrow.addTriangle(cx-4,cy-2,cx+4,cy-2,cx,cy+3);
+    g.setColour(metal(0xffc8aa6a));g.fillPath(arrow);
+    if(box.getProperties().getWithDefault("modified",false))
+    {g.setColour(metal(0xffd6a24d));g.fillEllipse((float)w-32,cy-2,4,4);}
+}
+juce::Font VocalsRackEditor::FaderLook::getComboBoxFont(juce::ComboBox& box)
+{
+    return juce::Font(juce::FontOptions((float)box.getHeight()*0.56f));
+}
+void VocalsRackEditor::FaderLook::positionComboBoxText(juce::ComboBox& box,juce::Label& label)
+{
+    label.setBounds(9,1,box.getWidth()-47,box.getHeight()-2);
+    label.setFont(getComboBoxFont(box));
+}
 VocalsRackEditor::VocalsRackEditor(VocalsRackProcessor& p) : AudioProcessorEditor(p), processor(p)
 {
     reference = juce::ImageCache::getFromMemory(BinaryData::vocalsrackreference_png, BinaryData::vocalsrackreference_pngSize);
+    look.setColour(juce::PopupMenu::backgroundColourId,metal(0xff24231d));
+    look.setColour(juce::PopupMenu::textColourId,metal(0xffe3d6b4));
+    look.setColour(juce::PopupMenu::highlightedBackgroundColourId,metal(0xff645139));
+    look.setColour(juce::PopupMenu::highlightedTextColourId,metal(0xffffe8b8));
     const char* names[] = {"Input Sensitivity", "Bass", "Treble", "Compress", "Reverb", "Delay", "Pitch", "Output", "Balance"};
     for (size_t i = 0; i < sliders.size(); ++i)
     {
@@ -159,12 +183,27 @@ VocalsRackEditor::VocalsRackEditor(VocalsRackProcessor& p) : AudioProcessorEdito
             timerCallback();
         };
     }
-    for (auto* b : {&resetButton, &copyButton, &swapButton, &saveButton, &loadButton}) { b->setLookAndFeel(&look); addAndMakeVisible(b); }
+    for (auto* b : {&resetButton, &copyButton, &swapButton, &saveButton, &loadButton, &previousPreset, &nextPreset}) { b->setLookAndFeel(&look); addAndMakeVisible(b); }
     bypassButton.setLookAndFeel(&look); addAndMakeVisible(bypassButton);
     bypassAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(p.state, "bypass", bypassButton);
-    resetButton.onClick = [this] { for (auto* param : processor.getParameters()) { param->beginChangeGesture(); param->setValueNotifyingHost(param->getDefaultValue()); param->endChangeGesture(); } };
-    copyButton.onClick = [this] { alternate = processor.state.copyState(); };
-    swapButton.onClick = [this] { if (!alternate.isValid()) alternate = processor.state.copyState(); auto current = processor.state.copyState(); processor.state.replaceState(alternate); alternate = current; isB = !isB; swapButton.setButtonText(isB ? "B / A" : "A / B"); };
+    presetBox.setName("Factory Presets");presetBox.setTitle("60 presets por genero");
+    presetBox.setLookAndFeel(&look);presetBox.setColour(juce::ComboBox::textColourId,metal(0xffd9d7a3));
+    presetBox.setTextWhenNothingSelected("60 PRESETS / SELECIONE");
+    for(int category=0;category<6;++category)
+    {
+        juce::PopupMenu group;
+        for(int i=0;i<60;++i) if(RackFactory::presets[(size_t)i].category==category)
+            group.addItem(i+1,VocalsRackProcessor::factoryPresetName(i));
+        presetBox.getRootMenu()->addSubMenu(VocalsRackProcessor::factoryCategoryName(category),group);
+    }
+    addAndMakeVisible(presetBox);
+    presetBox.onChange=[this] { if(presetBox.getSelectedId()>0) processor.loadFactoryPreset(presetBox.getSelectedId()-1);timerCallback(); };
+    previousPreset.setName("Previous Preset");nextPreset.setName("Next Preset");
+    previousPreset.onClick=[this] { int i=processor.getSelectedFactoryPreset();processor.loadFactoryPreset(i<0?59:(i+59)%60);timerCallback(); };
+    nextPreset.onClick=[this] { processor.loadFactoryPreset((processor.getSelectedFactoryPreset()+1)%60);timerCallback(); };
+    resetButton.onClick = [this] { processor.setCurrentProgram(0);timerCallback(); };
+    copyButton.onClick = [this] { alternate = processor.capturePresetState(); };
+    swapButton.onClick = [this] { if (!alternate.isValid()) alternate = processor.capturePresetState(); auto current = processor.capturePresetState(); processor.restorePresetState(alternate); alternate = current; isB = !isB; swapButton.setButtonText(isB ? "B / A" : "A / B"); };
     saveButton.onClick = [this] { chooseFile(true); }; loadButton.onClick = [this] { chooseFile(false); };
     setResizable(true, true); getConstrainer()->setFixedAspectRatio(baseW / baseH);
     setResizeLimits(778, 505, 1557, 1010); setSize(1090, 707);
@@ -174,8 +213,8 @@ VocalsRackEditor::~VocalsRackEditor()
 {
     stopTimer(); for(auto& s:sliders) s.setLookAndFeel(nullptr);
     for(auto& b:modes) b.setLookAndFeel(nullptr);
-    for(auto* b:{&resetButton,&copyButton,&swapButton,&saveButton,&loadButton}) b->setLookAndFeel(nullptr);
-    bypassButton.setLookAndFeel(nullptr);
+    for(auto* b:{&resetButton,&copyButton,&swapButton,&saveButton,&loadButton,&previousPreset,&nextPreset}) b->setLookAndFeel(nullptr);
+    bypassButton.setLookAndFeel(nullptr);presetBox.setLookAndFeel(nullptr);
 }
 void VocalsRackEditor::chooseFile(bool save)
 {
@@ -199,6 +238,12 @@ void VocalsRackEditor::timerCallback()
         modes[i].setColour(juce::TextButton::textColourOffId, modeColour(m));
         modes[i].setColour(juce::TextButton::buttonColourId, juce::Colour(0xff242729));
     }
+    const int preset=processor.getSelectedFactoryPreset();
+    presetBox.setSelectedId(preset+1,juce::dontSendNotification);
+    const bool modified=processor.isFactoryPresetModified();
+    presetBox.getProperties().set("modified",modified);
+    presetBox.setTooltip(preset<0?"60 presets em seis categorias":VocalsRackProcessor::factoryPresetName(preset)+" - "+juce::String::fromUTF8(RackFactory::presets[(size_t)preset].description)+(modified?" (editado)":""));
+    presetBox.repaint();
     sliders[8].setEnabled(processor.getTotalNumInputChannels() == 2);
     repaint();
 }
@@ -209,15 +254,18 @@ void VocalsRackEditor::resized()
     for (size_t i = 0; i < 8; ++i) sliders[i].setBounds(bounds(centres[i] - 61, 447, 122, 440));
     sliders[8].setBounds(bounds(247, 840, 48, 48));
     for (size_t i = 0; i < 6; ++i) modes[i].setBounds(bounds(centres[i+1] - 38, 354, 76, 58));
-    resetButton.setBounds(bounds(350, 26, 85, 28)); copyButton.setBounds(bounds(970, 26, 105, 28));
-    swapButton.setBounds(bounds(1082, 26, 105, 28)); loadButton.setBounds(bounds(1194, 26, 90, 28));
-    saveButton.setBounds(bounds(1291, 26, 90, 28)); bypassButton.setBounds(bounds(1388, 26, 130, 28));
+    resetButton.setBounds(bounds(231,26,62,28));previousPreset.setBounds(bounds(300,26,32,28));
+    presetBox.setBounds(bounds(339,25,658,31));nextPreset.setBounds(bounds(1004,26,32,28));
+    copyButton.setBounds(bounds(1043,26,70,28));swapButton.setBounds(bounds(1120,26,70,28));
+    loadButton.setBounds(bounds(1197,26,86,28));saveButton.setBounds(bounds(1290,26,91,28));
+    bypassButton.setBounds(bounds(1388,26,130,28));
 }
 void VocalsRackEditor::buildPanel()
 {
     // Construct a separate display layer. The immutable reference is never edited.
     panel=juce::Image(juce::Image::RGB,(int)baseW,(int)baseH,true,juce::SoftwareImageType());
     juce::Graphics g(panel);g.drawImage(reference,panel.getBounds().toFloat());
+    g.setColour(metal(0xff8b673c).withAlpha(0.09f));g.fillAll();
     juce::Image grain(juce::Image::ARGB,192,192,true,juce::SoftwareImageType());
     juce::Random random(49176);
     for(int y=0;y<grain.getHeight();++y) for(int x=0;x<grain.getWidth();++x)
@@ -225,14 +273,27 @@ void VocalsRackEditor::buildPanel()
     auto surface=[&](juce::Rectangle<float> r)
     {
         juce::Graphics::ScopedSaveState save(g);g.reduceClipRegion(r.toNearestInt());
-        juce::ColourGradient body(metal(0xff393d3e),r.getX(),r.getY(),metal(0xff25292a),r.getRight(),r.getBottom(),false);
-        body.addColour(0.35,metal(0xff343839));body.addColour(0.7,metal(0xff303435));g.setGradientFill(body);g.fillRect(r);
+        juce::ColourGradient body(metal(0xff494135),r.getX(),r.getY(),metal(0xff29261f),r.getRight(),r.getBottom(),false);
+        body.addColour(0.35,metal(0xff3e382e));body.addColour(0.7,metal(0xff383329));g.setGradientFill(body);g.fillRect(r);
         g.setTiledImageFill(grain,0,0,1);g.fillRect(r);
         for(int y=(int)r.getY();y<(int)r.getBottom();y+=3)
         {g.setColour(juce::Colours::white.withAlpha(0.012f));g.drawHorizontalLine(y,r.getX(),r.getRight());}
         juce::ColourGradient lighting(juce::Colours::white.withAlpha(0.035f),r.getX(),r.getY(),juce::Colours::black.withAlpha(0.15f),r.getRight(),r.getY(),false);
         lighting.addColour(0.5,juce::Colours::transparentBlack);g.setGradientFill(lighting);g.fillRect(r);
-        g.setColour(juce::Colours::white.withAlpha(0.13f));g.drawLine(r.getX(),r.getY()+1,r.getRight(),r.getY()+1,1);
+        // Fixed-seed patina: oxidised patches, small pits and worn brushed edges.
+        for(int n=0;n<45;++n)
+        {
+            const float x=r.getX()+random.nextFloat()*r.getWidth(),y=r.getY()+random.nextFloat()*r.getHeight();
+            g.setColour(metal(n%2?0xffa07c42:0xff151913).withAlpha(0.028f));
+            g.fillEllipse(x,y,12+random.nextFloat()*60,6+random.nextFloat()*23);
+        }
+        for(int n=0;n<330;++n)
+        {
+            const float x=r.getX()+random.nextFloat()*r.getWidth(),y=r.getY()+random.nextFloat()*r.getHeight();
+            const float length=1+random.nextFloat()*10;
+            g.setColour(metal(n%3?0xff211c14:0xffb39a63).withAlpha(0.2f));g.drawLine(x,y,x+length,y,0.6f);
+        }
+        g.setColour(metal(0xffcdb586).withAlpha(0.18f));g.drawLine(r.getX(),r.getY()+1,r.getRight(),r.getY()+1,1);
         g.setColour(juce::Colours::black.withAlpha(0.7f));g.drawLine(r.getX(),r.getBottom()-1,r.getRight(),r.getBottom()-1,2);
     };
     surface({57,392,294,549});surface({355,240,850,701});surface({1209,392,290,549});
@@ -262,13 +323,13 @@ void VocalsRackEditor::buildPanel()
             const float y=513.0f+(float)tick*154.0f;
             const bool right=i==7;
             const float tx=right?cx+52:cx-94;
-            g.setColour(metal(0xffaeb2ae));g.setFont(juce::FontOptions(17.0f));
+            g.setColour(metal(0xffbaad8c));g.setFont(juce::FontOptions(17.0f));
             g.drawText(tick==0?"+10":tick==1?"0":"-10",(int)tx,(int)y-12,43,24,juce::Justification::centred);
             g.drawLine(right?tx-12:tx+45,y,right?tx-3:tx+54,y,1.3f);
         }
         g.setColour(juce::Colours::black.withAlpha(0.65f));g.setFont(juce::FontOptions(18.5f,juce::Font::bold));
         g.drawText(channelNames[i],(int)cx-81,914,164,28,juce::Justification::centred);
-        g.setColour(metal(0xffc8cbc5));g.drawText(channelNames[i],(int)cx-82,913,164,28,juce::Justification::centred);
+        g.setColour(metal(0xffd7c7a3));g.drawText(channelNames[i],(int)cx-82,913,164,28,juce::Justification::centred);
     }
     // Meter cages, mounting screws and scale markings are static hardware.
     for(float x:{232.0f,1250.0f})
@@ -277,24 +338,38 @@ void VocalsRackEditor::buildPanel()
         screw(g,x+41,436);
         if(x>1000) screw(g,x+41,868);
     }
-    g.setColour(metal(0xffb4b7b0));g.setFont(juce::FontOptions(14.0f,juce::Font::italic));
+    g.setColour(metal(0xffbcad8a));g.setFont(juce::FontOptions(14.0f,juce::Font::italic));
     g.drawText("L",230,853,17,25,juce::Justification::centred);g.drawText("R",298,853,17,25,juce::Justification::centred);
     // Lower rail highlight ties the three sections into the same metal chassis.
-    juce::ColourGradient rail(metal(0xff484d4c),0,941,metal(0xff101314),0,963,false);rail.addColour(0.3,metal(0xff202526));
+    juce::ColourGradient rail(metal(0xff5a4c37),0,941,metal(0xff181813),0,963,false);rail.addColour(0.3,metal(0xff302a20));
     g.setGradientFill(rail);g.fillRect(57,941,1442,22);
     g.setColour(juce::Colours::white.withAlpha(0.1f));g.drawLine(58,942,1498,942,1);
+    // Oiled walnut side cheeks, machined brass edging and fine vertical grain.
+    for(float x:{32.0f,1514.0f})
+    {
+        juce::Rectangle<float> cheek(x,177,16,738);
+        g.setGradientFill(juce::ColourGradient(metal(0xff251a10),x,0,metal(0xff6b4729),x+16,0,false));g.fillRoundedRectangle(cheek,5);
+        for(int n=0;n<13;++n)
+        {
+            juce::Path fibre;const float fx=x+1+(float)n;
+            fibre.startNewSubPath(fx,181);fibre.cubicTo(fx-2,390,fx+2,690,fx,910);
+            g.setColour(metal(n%2?0xffb0814a:0xff1c140c).withAlpha(0.23f));g.strokePath(fibre,juce::PathStrokeType(0.6f));
+        }
+        g.setColour(metal(0xffb18c51).withAlpha(0.5f));g.drawRoundedRectangle(cheek,5,0.8f);
+    }
+    g.setFont(juce::FontOptions(13.0f,juce::Font::bold));g.setColour(metal(0xffc9b58d).withAlpha(0.75f));
+    g.drawText("VINTAGE  /  VOCAL PROCESSOR",790,209,400,21,juce::Justification::centredRight);
     // Clear the old toolbar only; keep the reference's red top and outer enclosure.
-    g.setColour(metal(0xff070909));g.fillRect(21,24,1515,33);
-    g.setColour(metal(0xff858c86));g.drawRect(22,25,1512,31,1);
-    g.setFont(juce::FontOptions(19.0f,juce::Font::bold));g.setColour(metal(0xffbfc3bc));g.drawText("VOCALS RACK",32,26,300,28,juce::Justification::centredLeft);
-    g.setColour(metal(0xff646a65));g.drawRect(442,26,521,28,1);
+    g.setColour(metal(0xff14140f));g.fillRect(21,24,1515,33);
+    g.setColour(metal(0xff897752));g.drawRect(22,25,1512,31,1);
+    g.setFont(juce::FontOptions(19.0f,juce::Font::bold));g.setColour(metal(0xffdcc8a0));g.drawText("VOCALS RACK",32,26,191,28,juce::Justification::centredLeft);
+
 }
 void VocalsRackEditor::paint(juce::Graphics& g)
 {
     g.drawImage(panel,getLocalBounds().toFloat());
     g.addTransform(juce::AffineTransform::scale((float)getWidth()/baseW,(float)getHeight()/baseH));
-    g.setColour(metal(0xffb9bfb6));g.setFont(juce::FontOptions(19.0f));
-    g.drawText(isB?"Setup B":"Setup A",447,26,511,28,juce::Justification::centred);
+
     for(int i=0;i<6;++i)
     {
         const int selected=(int)processor.state.getRawParameterValue(processor.colours[i])->load();
@@ -306,7 +381,7 @@ void VocalsRackEditor::paint(juce::Graphics& g)
             {
                 g.setColour(modeColour(m).withAlpha(0.13f));g.drawText(labels[i][m].toUpperCase(),r.expanded(1),juce::Justification::centred);
             }
-            g.setColour(selected==m?modeColour(m):metal(0xff555e5d));g.drawText(labels[i][m].toUpperCase(),r,juce::Justification::centred);
+            g.setColour(selected==m?modeColour(m):metal(0xff6a6350));g.drawText(labels[i][m].toUpperCase(),r,juce::Justification::centred);
         }
     }
     for(int side=0;side<2;++side)
@@ -321,7 +396,7 @@ void VocalsRackEditor::paint(juce::Graphics& g)
             for(int seg=0;seg<39;++seg)
             {
                 const float y=821.0f-(float)seg*8.4f;const bool lit=(float)seg/39<amount;
-                const auto colour=lit?metal(0xff91f13d):metal(0xff193521);
+                const auto colour=lit?metal(0xffb9df61):metal(0xff2b3520);
                 if(lit)
                 {g.setColour(colour.withAlpha(0.12f));g.fillRect(bx-1,y-1,21.0f,8.0f);}
                 juce::ColourGradient led(colour.brighter(lit?0.15f:0.0f),bx,y,colour.darker(0.3f),bx,y+6,false);
@@ -329,7 +404,7 @@ void VocalsRackEditor::paint(juce::Graphics& g)
             }
             g.setColour(processor.clips[index].load()?metal(0xffff4f35):metal(0xff61282b));g.fillRect(bx,484.0f,19.0f,8.0f);
         }
-        g.setFont(juce::FontOptions(14.0f,juce::Font::bold|juce::Font::italic));g.setColour(metal(0xffb3bbb0));
+        g.setFont(juce::FontOptions(14.0f,juce::Font::bold|juce::Font::italic));g.setColour(metal(0xffc4b78f));
         for(int tick=0;tick<5;++tick)g.drawText(juce::String(tick*6),(int)x+21,481+tick*76,24,21,juce::Justification::centred);
         // A narrow reflection on the meter glass rather than an opaque overlay.
         g.setGradientFill(juce::ColourGradient(juce::Colours::white.withAlpha(0.06f),x,477,juce::Colours::transparentWhite,x+25,477,false));g.fillRect(x-1,477.0f,26.0f,350.0f);

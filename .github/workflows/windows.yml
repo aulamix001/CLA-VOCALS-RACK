@@ -54,12 +54,12 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           cat > /tmp/release-notes.md <<'NOTES'
-          Vocals Rack for Windows 64-bit (VST3), with a hardware-style metal interface.
+          Vocals Rack 0.2.0 for Windows 64-bit (VST3): 60 genre presets and a rustic vintage interface.
 
-          This update adds contoured chrome faders with brushed highlights and cast shadows, recessed slots, illuminated switches, metal panel texture, screws and glass-fronted meters. The original reference image remains unchanged. The interface PNG shows the actual JUCE editor rendered during the Windows tests, with demonstration control positions.
+          60 built-in presets: 10 each for Pop, Rock, Hip-Hop/Rap, R&B, Indie and voice with acoustic guitar. The category menu and previous/next buttons load all faders and effect modes automatically. Preset identity and edited settings persist in DAW sessions, user preset files and A/B snapshots. The interface now has aged metal, warm nickel faders, brass trim, patina and walnut side cheeks. The original reference image remains unchanged. The PNG is the actual editor rendered during Windows tests.
 
           Extract the ZIP and copy the entire `Vocals Rack.vst3` folder to `C:\Program Files\Common Files\VST3\`, then rescan plugins in your DAW.
 
-          Built on Windows with MSVC x64 and JUCE. Automated processor, editor-rendering and reference-integrity tests must pass before publication. Live DAW compatibility and listening tests remain pending. Independent DSP implementation; not the official Waves plugin or a verified sonic reproduction.
+          Built on Windows with MSVC x64 and JUCE. Automated processor, all-60-preset mapping/audio/state, editor-rendering and reference-integrity tests must pass before publication. Live DAW compatibility and listening tests remain pending. Independent DSP implementation; not the official Waves plugin or a verified sonic reproduction.
           NOTES
           gh release create "$RELEASE_TAG" dist/Vocals-Rack-Windows-x64-VST3.zip dist/SHA256SUMS.txt dist/Vocals-Rack-Interface.png --title "Vocals Rack $RELEASE_TAG - Windows x64 VST3" --notes-file /tmp/release-notes.md --prerelease --verify-tag

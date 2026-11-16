@@ -24,8 +24,67 @@ VocalsRackProcessor::VocalsRackProcessor()
     : AudioProcessor(BusesProperties().withInput("Input", juce::AudioChannelSet::stereo(), true)
         .withOutput("Output", juce::AudioChannelSet::stereo(), true)), state(*this, &undo, "VocalsRackState", makeParameters())
 {
-    for (int i = 0; i < 9; ++i) values[(size_t)i] = state.getRawParameterValue(controls[i]);
-    for (int i = 0; i < 6; ++i) modes[(size_t)i] = state.getRawParameterValue(colours[i]);
+    for (int i = 0; i < 9; ++i) { values[(size_t)i] = state.getRawParameterValue(controls[i]); faderParameters[(size_t)i] = state.getParameter(controls[i]); }
+    for (int i = 0; i < 6; ++i) { modes[(size_t)i] = state.getRawParameterValue(colours[i]); colourParameters[(size_t)i] = state.getParameter(colours[i]); }
+    bypassParameter = state.getParameter("bypass");
+}
+juce::String VocalsRackProcessor::factoryCategoryName(int category)
+{
+    if (category < 0 || category >= 6) return {};
+    if (category == 5) return juce::String::fromUTF8(u8"Voz e viol\u00e3o");
+    return RackFactory::categories[(size_t)category];
+}
+juce::String VocalsRackProcessor::factoryPresetName(int index)
+{
+    if (index < 0 || index >= 60) return "Inicial / Personalizado";
+    const auto& p = RackFactory::presets[(size_t)index];
+    return factoryCategoryName(p.category) + " / " + p.name;
+}
+const juce::String VocalsRackProcessor::getProgramName(int index)
+{
+    return index == 0 ? "Initial" : factoryPresetName(index - 1);
+}
+bool VocalsRackProcessor::loadFactoryPreset(int index)
+{
+    if (index < 0 || index >= 60) return false;
+    const auto& preset = RackFactory::presets[(size_t)index];
+    // Use the existing parameter attachments: the host and all visible controls see the same values.
+    for (size_t i=0;i<9;++i) faderParameters[i]->setValueNotifyingHost(faderParameters[i]->convertTo0to1(preset.faders[i]));
+    for (size_t i=0;i<6;++i) colourParameters[i]->setValueNotifyingHost(colourParameters[i]->convertTo0to1((float)preset.colours[i]));
+    bypassParameter->setValueNotifyingHost(0);
+    selectedFactory.store(index);
+    return true;
+}
+void VocalsRackProcessor::setCurrentProgram(int program)
+{
+    if (program < 0 || program >= getNumPrograms()) return;
+    if (program > 0) { loadFactoryPreset(program - 1); return; }
+    for (auto* p : faderParameters) p->setValueNotifyingHost(p->getDefaultValue());
+    for (auto* p : colourParameters) p->setValueNotifyingHost(p->getDefaultValue());
+    bypassParameter->setValueNotifyingHost(0);
+    selectedFactory.store(-1);
+}
+bool VocalsRackProcessor::isFactoryPresetModified() const
+{
+    const int index = selectedFactory.load();
+    if (index < 0 || index >= 60) return false;
+    const auto& preset = RackFactory::presets[(size_t)index];
+    for (size_t i=0;i<9;++i) if (std::abs(values[i]->load() - preset.faders[i]) > 0.002f) return true;
+    for (size_t i=0;i<6;++i) if ((int)modes[i]->load() != preset.colours[i]) return true;
+    return bypassParameter->getValue() > 0.5f;
+}
+juce::ValueTree VocalsRackProcessor::capturePresetState()
+{
+    auto snapshot = state.copyState();
+    snapshot.setProperty("factoryPreset",selectedFactory.load(),nullptr);
+    return snapshot;
+}
+void VocalsRackProcessor::restorePresetState(const juce::ValueTree& snapshot)
+{
+    if (!snapshot.hasType("VocalsRackState")) return;
+    const int index = snapshot.getProperty("factoryPreset",-1);
+    state.replaceState(snapshot);
+    selectedFactory.store(index >= 0 && index < 60 ? index : -1);
 }
 bool VocalsRackProcessor::isBusesLayoutSupported(const BusesLayout& b) const
 {
@@ -155,12 +214,12 @@ void VocalsRackProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::M
 juce::AudioProcessorParameter* VocalsRackProcessor::getBypassParameter() const { return state.getParameter("bypass"); }
 void VocalsRackProcessor::getStateInformation(juce::MemoryBlock& data)
 {
-    if (auto xml = state.copyState().createXml()) copyXmlToBinary(*xml, data);
+    if (auto xml = capturePresetState().createXml()) copyXmlToBinary(*xml, data);
 }
 void VocalsRackProcessor::setStateInformation(const void* data, int size)
 {
     if (auto xml = getXmlFromBinary(data, size)) if (xml->hasTagName("VocalsRackState"))
-        state.replaceState(juce::ValueTree::fromXml(*xml));
+        restorePresetState(juce::ValueTree::fromXml(*xml));
 }
 juce::AudioProcessorEditor* VocalsRackProcessor::createEditor() { return new VocalsRackEditor(*this); }
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() { return new VocalsRackProcessor(); }

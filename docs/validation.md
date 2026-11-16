@@ -6,7 +6,7 @@ Ambiente atual: Linux x86_64, GCC 14.2, CMake 3.31.6, Ninja 1.11.1, JUCE 8.0.6 (
 
 - Bootstrap local completo, inclusive repetição, sem privilégios de sistema. Pacotes obtidos com verificação normal de assinatura e checksum do APT; TLS mantido.
 - Build Release do código compartilhado, editor, testes e bundle VST3 Linux. Manifesto VST3 gerado pelo helper JUCE.
-- CTest: **3/3 aprovados**, nenhum teste desabilitado ou ignorado.
+- CTest local da versao 0.2.0: **4/4 aprovados**, nenhum teste desabilitado ou ignorado.
 - `RackProcessor`: valores padrão, serialização/restauração e rejeição de estado inválido; áudio finito em 44,1/48/96 kHz; neutralidade com módulos Clear nesta implementação; bypass; efeito audível de todos os 18 modos ativos; primeira repetição do delay nas amostras corretas para 1/16, 1/8 e 1/4 a 120 BPM; entrada mono duplicada para estéreo; pico e retenção/reset de clipping.
 - `EditorRender`: criação/destruição da interface; nove controles testados nos extremos e ligados aos parâmetros; seis seletores testados no ciclo de quatro estados; limites dos componentes conferidos em três tamanhos (778 × 505, 1557 × 1010 e 1090 × 707); renderização offscreen em `build/editor-preview.png`. A captura substitui corretamente a execução anterior e foi inspecionada visualmente. Este teste não representa interação completa com uma DAW.
 - `ReferenceIntegrity`: imagem e 14 anexos originais, 15 arquivos no total, conferidos por tamanho e SHA-256.
@@ -21,6 +21,10 @@ ctest --test-dir build --output-on-failure
 ./build/RackTests
 python scripts/verify_sources.py
 ```
+
+## Banco de presets 0.2.0 (validacao local)
+
+`FactoryPresets` confirmou os 60 nomes e configuracoes distintos, dez em cada categoria, todos os nove valores e os seis modos mapeados corretamente, audio finito e nao silencioso, programas do host, restauracao de sessoes, edicoes manuais, A/B e compatibilidade com estados antigos sem metadados de preset. `EditorRender` selecionou os 60 itens pelo menu e verificou a atualizacao de todos os faders visiveis. A captura atual foi inspecionada com o acabamento vintage.
 
 ## Pendente
 
