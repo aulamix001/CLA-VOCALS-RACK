@@ -29,11 +29,47 @@ int main(int argc, char** argv)
                 if (auto* slider = dynamic_cast<juce::Slider*>(child))
                     if (slider->getName() == "Bass") { slider->setValue(4.2, juce::sendNotificationSync); found = true; }
             require(found && std::abs(p.state.getRawParameterValue("bass")->load() - 4.2f) < 0.001f, "editor fader changes audio parameter");
+            // Exercise live controls, their full travel and the four mode states.
+            const float fixture[] = {2.0f,-3.0f,4.0f,0.0f,2.0f,-4.0f,6.0f,0.0f,0.0f};
+            const int fixtureModes[] = {1,2,3,1,2,2};
+            int sliderCount=0,modeCount=0;
+            for(auto* child:editor->getChildren())
+            {
+                if(auto* slider=dynamic_cast<juce::Slider*>(child))
+                {
+                    const int index=sliderCount++;
+                    for(double endpoint:{slider->getMinimum(),slider->getMaximum()})
+                    {
+                        slider->setValue(endpoint,juce::sendNotificationSync);
+                        require(std::abs(p.state.getRawParameterValue(p.controls[index])->load()-(float)endpoint)<0.001f,"full fader travel updates parameter");
+                    }
+                    slider->setValue(fixture[index],juce::sendNotificationSync);
+                }
+                if(auto* button=dynamic_cast<juce::TextButton*>(child))
+                    if(button->getName().endsWith(" Color"))
+                    {
+                        const auto* id=p.colours[modeCount++];
+                        for(int click=0;click<4;++click)
+                        {
+                            button->onClick();
+                            require((int)p.state.getRawParameterValue(id)->load()==(click+2)%4,"mode button cycles through clear and three colours");
+                        }
+                        for(int click=1;click<fixtureModes[modeCount-1];++click) button->onClick();
+                    }
+            }
+            require(sliderCount==9 && modeCount==6,"all hardware controls exercised");
+            for(auto size:{juce::Point<int>(778,505),juce::Point<int>(1557,1010),juce::Point<int>(1090,707)})
+            {
+                editor->setSize(size.x,size.y);
+                for(auto* child:editor->getChildren())require(editor->getLocalBounds().contains(child->getBounds()),"resized controls remain in panel");
+            }
+            p.peaks[0].store(0.22f);p.peaks[1].store(0.18f);p.peaks[2].store(0.7f);p.peaks[3].store(0.78f);
             juce::Image image(juce::Image::ARGB, editor->getWidth(), editor->getHeight(), true);
             juce::Graphics graphics(image); editor->paintEntireComponent(graphics, true);
             juce::FileOutputStream stream { juce::File(argv[2]) };
+            require(stream.openedOk() && stream.setPosition(0) && stream.truncate().wasOk(), "replace previous editor render");
             require(stream.openedOk() && juce::PNGImageFormat().writeImageToStream(image, stream), "render PNG");
-            std::cout << "PASS editor construction, fader attachment and offscreen rendering\n";
+            std::cout << "PASS editor rendering, nine faders, six four-state switches and three window sizes\n";
             return 0;
         }
         VocalsRackProcessor p;

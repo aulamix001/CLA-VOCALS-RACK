@@ -42,6 +42,10 @@ ctest --test-dir build --output-on-failure
 
 O bootstrap instala ferramentas e extrai pacotes Debian verificados para `/workspace/.tools`, sem exigir acesso de escrita ao sistema. Não é necessário serviço, chave de API nem servidor. O artefato Linux serve para validar o código; não pode ser instalado numa DAW Windows.
 
+## Interface de hardware
+
+O editor desenha faders cromados com faces curvas, reflexos, microtextura e sombras projetadas; trilhos rebaixados; seletores com moldura metálica e lâmpada amarela; parafusos; painel de metal texturizado e medidores com reflexo de vidro. O acabamento é desenhado em camadas JUCE sobre uma superfície estática em cache, preservando o cabeçalho e a carcaça da referência. O arquivo original permanece intacto. As posições da captura de demonstração não alteram os valores padrão de áudio.
+
 ## Controles implementados
 
 - Sensitivity, Bass, Treble, Compress, Reverb, Delay, Pitch e Output: −10 a +10 em passos de 0,1.
@@ -55,7 +59,7 @@ A/B troca os dois estados; A > B copia o estado atual para o alternativo. Duplo 
 
 ## Limitações desta primeira versão
 
-DSP próprio: filtros de primeira ordem, compressor estéreo vinculado, reverb JUCE, delay com feedback e chorus/doubling. Não reproduz o processamento fixo proprietário mencionado no manual, nem importa os presets Waves, cujos valores internos não têm correspondência sonora garantida. Os XMLs de preset foram preservados como referência, sem serem executados ou tratados como instruções de instalação. Não há undo/redo na barra inicial. A interface usa a imagem como base, com controles desenhados sobre ela; ainda exige refinamento visual e teste de interação em DAW.
+DSP próprio: filtros de primeira ordem, compressor estéreo vinculado, reverb JUCE, delay com feedback e chorus/doubling. Não reproduz o processamento fixo proprietário mencionado no manual, nem importa os presets Waves, cujos valores internos não têm correspondência sonora garantida. Os XMLs de preset foram preservados como referência, sem serem executados ou tratados como instruções de instalação. Não há undo/redo na barra inicial. A interface preserva a carcaça da referência e redesenha os controles com acabamento de hardware. O teste de interação em DAW continua pendente.
 
 A compilação Windows x64 e os testes automatizados passaram no GitHub Actions. O carregamento e o teste real em DAW Windows ainda estão pendentes. Consultar `docs/validation.md` para os resultados efetivamente executados.
 

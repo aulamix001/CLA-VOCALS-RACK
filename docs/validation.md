@@ -8,7 +8,7 @@ Ambiente atual: Linux x86_64, GCC 14.2, CMake 3.31.6, Ninja 1.11.1, JUCE 8.0.6 (
 - Build Release do código compartilhado, editor, testes e bundle VST3 Linux. Manifesto VST3 gerado pelo helper JUCE.
 - CTest: **3/3 aprovados**, nenhum teste desabilitado ou ignorado.
 - `RackProcessor`: valores padrão, serialização/restauração e rejeição de estado inválido; áudio finito em 44,1/48/96 kHz; neutralidade com módulos Clear nesta implementação; bypass; efeito audível de todos os 18 modos ativos; primeira repetição do delay nas amostras corretas para 1/16, 1/8 e 1/4 a 120 BPM; entrada mono duplicada para estéreo; pico e retenção/reset de clipping.
-- `EditorRender`: criação/destruição da interface, movimentação de Bass refletida no parâmetro de áudio e renderização offscreen em `build/editor-preview.png`. Uma renderização inicial foi inspecionada visualmente. Este teste não representa interação completa com uma DAW.
+- `EditorRender`: criação/destruição da interface; nove controles testados nos extremos e ligados aos parâmetros; seis seletores testados no ciclo de quatro estados; limites dos componentes conferidos em três tamanhos (778 × 505, 1557 × 1010 e 1090 × 707); renderização offscreen em `build/editor-preview.png`. A captura substitui corretamente a execução anterior e foi inspecionada visualmente. Este teste não representa interação completa com uma DAW.
 - `ReferenceIntegrity`: imagem e 14 anexos originais, 15 arquivos no total, conferidos por tamanho e SHA-256.
 - Sintaxe dos scripts Bash e verificação de whitespace.
 
@@ -26,7 +26,7 @@ python scripts/verify_sources.py
 
 - Carregamento, varredura VST3, automação, troca de configuração de canais, salvar/reabrir sessão e reprodução em DAW Windows real.
 - Validação perceptiva, refinamento visual, resposta sob mudanças rápidas de modos, compatibilidade com hosts e comparação sonora. Não há demonstração de equivalência ao plugin proprietário.
-- Teste de todos os botões e dos diálogos de presets em ambiente gráfico real; o teste offscreen cobre a criação e a ligação de um fader.
+- Teste de todos os botões e dos diálogos de presets em ambiente gráfico real; o teste offscreen cobre os faders, os seletores e o redimensionamento.
 - Publicação do ambiente e restauração em uma nova tarefa. `install_script` e `start_skill` foram salvos no rascunho; isso não publica o ambiente. O código e o VST3 Windows foram enviados ao GitHub separadamente.
 
 ## Publicação Windows verificada

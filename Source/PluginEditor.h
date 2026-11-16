@@ -12,11 +12,18 @@ private:
     struct FaderLook : juce::LookAndFeel_V4
     {
         void drawLinearSlider(juce::Graphics&, int, int, int, int, float, float, float, juce::Slider::SliderStyle, juce::Slider&) override;
+        juce::Slider::SliderLayout getSliderLayout(juce::Slider&) override;
+        void drawRotarySlider(juce::Graphics&, int, int, int, int, float, float, float, juce::Slider&) override;
+        void drawButtonBackground(juce::Graphics&, juce::Button&, const juce::Colour&, bool, bool) override;
+        void drawButtonText(juce::Graphics&, juce::TextButton&, bool, bool) override;
+        void drawToggleButton(juce::Graphics&, juce::ToggleButton&, bool, bool) override;
     } look;
     void timerCallback() override;
     void chooseFile(bool save);
+    void buildPanel();
     VocalsRackProcessor& processor;
     juce::Image reference;
+    juce::Image panel;
     std::array<juce::Slider, 9> sliders;
     std::array<std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>, 9> attachments;
     std::array<juce::TextButton, 6> modes;

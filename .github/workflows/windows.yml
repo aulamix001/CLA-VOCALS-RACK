@@ -28,6 +28,7 @@ jobs:
             throw 'Windows x64 VST3 binary missing'
           }
           New-Item -ItemType Directory -Force dist | Out-Null
+          Copy-Item build/editor-preview.png dist/Vocals-Rack-Interface.png
           Compress-Archive -LiteralPath $bundle -DestinationPath dist/Vocals-Rack-Windows-x64-VST3.zip
           (Get-FileHash dist/Vocals-Rack-Windows-x64-VST3.zip -Algorithm SHA256).Hash.ToLower() + '  Vocals-Rack-Windows-x64-VST3.zip' | Set-Content -Encoding ascii dist/SHA256SUMS.txt
       - uses: actions/upload-artifact@v4
@@ -53,10 +54,12 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           cat > /tmp/release-notes.md <<'NOTES'
-          First preview of Vocals Rack for Windows 64-bit (VST3).
+          Vocals Rack for Windows 64-bit (VST3), with a hardware-style metal interface.
+
+          This update adds contoured chrome faders with brushed highlights and cast shadows, recessed slots, illuminated switches, metal panel texture, screws and glass-fronted meters. The original reference image remains unchanged. The interface PNG shows the actual JUCE editor rendered during the Windows tests, with demonstration control positions.
 
           Extract the ZIP and copy the entire `Vocals Rack.vst3` folder to `C:\Program Files\Common Files\VST3\`, then rescan plugins in your DAW.
 
           Built on Windows with MSVC x64 and JUCE. Automated processor, editor-rendering and reference-integrity tests must pass before publication. Live DAW compatibility and listening tests remain pending. Independent DSP implementation; not the official Waves plugin or a verified sonic reproduction.
           NOTES
-          gh release create "$RELEASE_TAG" dist/Vocals-Rack-Windows-x64-VST3.zip dist/SHA256SUMS.txt --title "Vocals Rack $RELEASE_TAG - Windows x64 VST3" --notes-file /tmp/release-notes.md --prerelease --verify-tag
+          gh release create "$RELEASE_TAG" dist/Vocals-Rack-Windows-x64-VST3.zip dist/SHA256SUMS.txt dist/Vocals-Rack-Interface.png --title "Vocals Rack $RELEASE_TAG - Windows x64 VST3" --notes-file /tmp/release-notes.md --prerelease --verify-tag
